@@ -56,8 +56,8 @@ export class CreateInventoryComponent implements OnInit {
   public averageValue;
 
 
-  // bar;
-  // findBarCode;
+  bar;
+  findBarCode;
 
   code;
   findProductCode;
@@ -409,39 +409,39 @@ export class CreateInventoryComponent implements OnInit {
 
     }
 
-    //
-    // searchBarCode(event: any){
-    //     this.bar = event.target.value;
-    //
-    //     this.inventoryService.readProduct()
-    //         .subscribe(
-    //             data => {
-    //                 let codeList = [];
-    //
-    //                 let rawData = data['msg'];
-    //
-    //                 rawData.forEach((products) => {
-    //
-    //                     if (products.barCode == this.bar) {
-    //                         codeList.push(products.productName)
-    //                     }
-    //
-    //                 });
-    //
-    //                 this.findBarCode = codeList;
-    //
-    //                 console.log('list',this.findBarCode)
-    //                 if(this.findBarCode.length > 0){
-    //                     this.addIteminto();
-    //                 }
-    //
-    //             },
-    //
-    //             err =>{
-    //                 console.log(err);
-    //             });
-    //
-    // }
+
+    searchBarCode(event: any){
+        this.bar = event.target.value;
+
+        this.inventoryService.readProduct()
+            .subscribe(
+                data => {
+                    let codeList = [];
+
+                    let rawData = data['msg'];
+
+                    rawData.forEach((products) => {
+
+                        if (products.barCode == this.bar) {
+                            codeList.push(products.productName)
+                        }
+
+                    });
+
+                    this.findBarCode = codeList;
+
+                    console.log('list',this.findBarCode)
+                    if(this.findBarCode.length > 0){
+                        this.addIteminto();
+                    }
+
+                },
+
+                err =>{
+                    console.log(err);
+                });
+
+    }
 
     readUnit()
     {
@@ -488,16 +488,17 @@ export class CreateInventoryComponent implements OnInit {
                     this.frieghtes = resetList;
 
                     for (let i = 0; i < this.frieghtes.length; i++) {
-                         let container = this.frieghtes[i].container;
+                        let container = this.frieghtes[i].container;
 
 
-                       container.forEach((con) => {
+                        container.forEach((con) => {
                             if (con.containerNumber[i] !== null) {
                                 sortedList.push(con)
                             }
                         });
                         this.con = sortedList;
 
+                        console.log('con', this.con)
                     }
 
                 },
@@ -505,6 +506,13 @@ export class CreateInventoryComponent implements OnInit {
                 err => {
                     console.log(err);
                 })
+
+    }
+
+    matchCon(e){
+      let match = e.target.value
+
+
 
     }
 

@@ -51,22 +51,25 @@ export class CreateFrieghtComponent implements OnInit {
         console.log('From Main Controller', this.frieghtService.fContainer())
 
 
-
-
     }
 
     // For Adding and Deleting Multiple Rows in the Frieght Invoice Form
     //=================================================================
 
-    addContainer() {
-        this.container.push({
-            containerNumber: this.containerNumber,
-            price: this.price ,
-            size: this.size});
-        this.containerNumber = '';
-        this.price = '';
-        this.size = '';
-        console.log(this.container)
+    addContainer(a, b, c) {
+        if(a==0 || b==0 || c==0){
+            alert('You Must Filled the Container Required Fields')
+        }
+        else{
+            this.container.push({
+                containerNumber: this.containerNumber,
+                price: this.price ,
+                size: this.size});
+            this.containerNumber = '';
+            this.price = '';
+            this.size = '';
+            console.log(this.container)
+        }
 
     }
 

@@ -6,12 +6,13 @@ export class Frieght {
     public blNumber:string;
     public mblNumber:string;
     public invoiceDate:string;
+    // public container:Container[];
     public container: any;
     public containerNumber: string;
     public price: number;
     public size: string;
-    public expensePrice:string;
     public containerPrice: number;
+    public expensePrice:string;
     public totalPrice:string;
     public avgPrice:string;
     public totalProductPiece:string;
@@ -20,3 +21,9 @@ export class Frieght {
     public created:number;
     public updated:number;
 }
+//
+// export class Container {
+//     public containerNumber: string;
+//     public price: number;
+//     public size: string;
+// }

@@ -97,58 +97,58 @@
 
     <!----=====================Loop Fields========================================-->
 
-    <div *ngIf="frieght._id !== undefined">
-      <div class="row" *ngFor="let con of frieght.container; let i = index">
-        <div class="col-sm-6 mobile-inputs">
+    <!--<div *ngIf="frieght._id !== undefined">-->
+      <!--<div class="row" *ngFor="let con of frieght.container; let i = index">-->
+        <!--<div class="col-sm-6">-->
 
-          <div class="form-group row">
+          <!--<div class="form-group row">-->
 
-            <div class="col-sm-4">
-              <label>Container No</label>
-              <input [(ngModel)] = "con.containerNumber" name="container[i].containerNumber" type="text" class="form-control" placeholder=""
-                     required #containerNumber="ngModel" [class.is-invalid]="containerNumber.invalid && containerNumber.touched" readonly>
+            <!--<div class="col-sm-4">-->
+              <!--<label>Container No</label>-->
+              <!--<input [(ngModel)] = "con.containerNumber" name="container[i].containerNumber" type="text" class="form-control" placeholder=""-->
+                     <!--required #containerNumber="ngModel" [class.is-invalid]="containerNumber.invalid && containerNumber.touched" >-->
 
-              <small class="text-danger" *ngIf="containerNumber.invalid && containerNumber.touched">Container Number is required </small>
+              <!--<small class="text-danger" *ngIf="containerNumber.invalid && containerNumber.touched">Container Number is required </small>-->
 
-            </div>
+            <!--</div>-->
 
-            <div class="col-sm-4">
-              <label>Container Price</label>
-              <input [(ngModel)] = "con.price" name="container[i].price" (change)="valueOne($event) " type="number" class="form-control" placeholder=""
-                     required #price="ngModel" [class.is-invalid]="price.invalid && price.touched" readonly>
+            <!--<div class="col-sm-4">-->
+              <!--<label>Container Price</label>-->
+              <!--<input [(ngModel)] = "con.price" name="container[i].price" (change)="valueOne($event) " type="number" class="form-control" placeholder=""-->
+                     <!--required #price="ngModel" [class.is-invalid]="price.invalid && price.touched" >-->
 
-              <small class="text-danger" *ngIf="price.invalid && price.touched">Price is required</small>
-            </div>
+              <!--<small class="text-danger" *ngIf="price.invalid && price.touched">Price is required</small>-->
+            <!--</div>-->
 
-            <div class="col-sm-4">
-              <label>Size</label>
-              <input [(ngModel)] = "con.size" name="container[i].size" type="text" class="form-control" placeholder=""
-                     required #size="ngModel" [class.is-invalid]="size.invalid && size.touched" readonly>
+            <!--<div class="col-sm-4">-->
+              <!--<label>Size</label>-->
+              <!--<input [(ngModel)] = "con.size" name="container[i].size" type="text" class="form-control" placeholder=""-->
+                     <!--required #size="ngModel" [class.is-invalid]="size.invalid && size.touched" >-->
 
-              <small class="text-danger" *ngIf="size.invalid && size.touched">Size is required </small>
-            </div>
-          </div>
-        </div>
+              <!--<small class="text-danger" *ngIf="size.invalid && size.touched">Size is required </small>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-sm-6 mobile-inputs">
+        <!--<div class="col-sm-6 ">-->
 
-          <div class="col-sm-4 Btn">
+          <!--<div class="col-sm-4 Btn">-->
 
-            <a data-toggle="tooltip" title="Add" (click)="addContainer()">
-              <i class="icofont icofont-ui-add text-c-green"></i></a>
-            <span>&nbsp;&nbsp;&nbsp;</span>
+            <!--<a data-toggle="tooltip" title="Add" (click)="addContainer()">-->
+              <!--<i class="icofont icofont-ui-add text-c-green"></i></a>-->
+            <!--<span>&nbsp;&nbsp;&nbsp;</span>-->
 
-            <!--<span *ngIf="container[1]">-->
-            <a data-toggle="tooltip" title="Remove" (click)="deleteContainer(i)">
-              <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
-            <!--</span>-->
+            <!--&lt;!&ndash;<span *ngIf="container[1]">&ndash;&gt;-->
+            <!--<a data-toggle="tooltip" title="Remove" (click)="deleteContainer(i)">-->
+              <!--<i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>-->
+            <!--&lt;!&ndash;</span>&ndash;&gt;-->
 
-          </div>
+          <!--</div>-->
 
-        </div>
+        <!--</div>-->
 
-      </div>
-    </div>
+      <!--</div>-->
+    <!--</div>-->
 
 
     <!----===========================Loop Fields==================================-->
@@ -193,7 +193,7 @@
 
             <div class="col-sm-4 Btn">
 
-              <a data-toggle="tooltip" title="Add" (click)="addContainer()">
+              <a data-toggle="tooltip" title="Add" (click)="addContainer(container[i].containerNumber, container[i].price, container[i].size)">
                 <i class="icofont icofont-ui-add text-c-green"></i></a>
 
               <!--<span *ngIf="container[1]">-->

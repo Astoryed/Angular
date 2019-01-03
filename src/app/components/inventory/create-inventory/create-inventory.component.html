@@ -1,4 +1,4 @@
-<form (submit)="createInventory()">
+<form (submit)="createInventory()" #inventoryForm="ngForm">
   <app-card>
 
     <div class="customHeading" *ngIf="inventory._id == undefined; else titleName">
@@ -28,7 +28,7 @@
           <div class="col-sm-4">
             <label>Container No</label>
 
-              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control">
+              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control" (change)="matchCon($event)">
                 <option *ngFor="let cont of con" value="{{cont.containerNumber}}">{{cont.containerNumber}}</option>
                 <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
 
@@ -38,8 +38,10 @@
 
           <div class="col-sm-4">
             <label>Batch No</label>
-            <input [(ngModel)] = "inventory.batchNumber" name="batchNumber" type="text" class="form-control" placeholder="">
-            <small class="text-danger">{{errorMsg.batchNumber}}</small>
+            <input [(ngModel)] = "inventory.batchNumber" name="batchNumber" type="text" class="form-control" placeholder=""
+                   required #batchNumber="ngModel" [class.is-invalid]="batchNumber.invalid && batchNumber.touched">
+
+            <small class="text-danger" *ngIf="batchNumber.invalid && batchNumber.touched">Batch Number is required </small>
 
           </div>
 
@@ -64,8 +66,10 @@
 
           <div class="col-sm-5">
             <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Date</label>
-            <input  [(ngModel)] = "inventory.inventoryDate" name="inventoryDate"  class="form-control" type="date" >
-            <!--<small class="text-danger">{{errorMsg.inventoryDate}}</small>-->
+            <input  [(ngModel)] = "inventory.inventoryDate" name="inventoryDate"  class="form-control" type="date"
+                    required #inventoryDate="ngModel" [class.is-invalid]="inventoryDate.invalid && inventoryDate.touched">
+
+            <small class="text-danger" *ngIf="inventoryDate.invalid && inventoryDate.touched">Date is required </small>
 
           </div>
 
@@ -105,29 +109,28 @@
 
           <!--</div>-->
 
-          <!--<div class="pcoded-search col-sm-4">-->
-            <!--<label>Barcode Name</label>-->
-            <!--<input [(ngModel)] = "inventory.barCode" name="barCode" (keyup)='searchBarCode($event)'-->
-                   <!--class="form-control" placeholder="Search" type="search" value="{{inventory.barCode}}">-->
-            <!--<span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>-->
+          <div class="pcoded-search col-sm-4">
+            <label>Barcode Name</label>
+            <input [(ngModel)] = "inventory.barCode" name="barCode" (keyup)='searchBarCode($event)'
+                   class="form-control" placeholder="Search" type="search" value="{{inventory.barCode}}">
+            <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
 
+            <!--<small class="text-danger">{{errorMsg.barCodeName}}</small>-->
+
+          </div>
+
+          <!--<div class="col-sm-4">-->
+            <!--<label>Barcode Name</label>-->
+            <!--<select [(ngModel)] = "inventory.barCode" name="barCode" class="form-control">-->
+              <!--<option *ngFor="let product of products" value="{{product.barCode}}">{{product.barCode}}</option>-->
+            <!--</select>-->
             <!--&lt;!&ndash;<small class="text-danger">{{errorMsg.barCodeName}}</small>&ndash;&gt;-->
 
           <!--</div>-->
 
           <div class="col-sm-4">
-            <label>Barcode Name</label>
-            <select [(ngModel)] = "inventory.barCode" name="barCode" class="form-control">
-              <option *ngFor="let product of products" value="{{product.barCode}}">{{product.barCode}}</option>
-            </select>
-            <!--<small class="text-danger">{{errorMsg.barCodeName}}</small>-->
-
-          </div>
-
-          <div class="col-sm-4">
             <label>Average Price From Expense</label>
             <input  [(ngModel)] = "inventory.avgPrice" name="avgPrice" (change)="avgValue($event)"  type="text" class="form-control" placeholder="">
-            <!--<small class="text-danger">{{errorMsg.avgPrice}}</small>-->
 
           </div>
 
@@ -154,7 +157,10 @@
             <div class="col-sm-3">
               <label>Item Name</label>
               <input  [(ngModel)] = "items[i].itemName" name="itemName{{i}}"
-                      type="text" class="form-control" placeholder="">
+                      type="text" class="form-control" placeholder="" required #itemName="ngModel"
+                      [class.is-invalid]="itemName.invalid && itemName.touched">
+
+              <small class="text-danger" *ngIf="itemName.invalid && itemName.touched">Item name is required </small>
             </div>
 
             <div class="col-sm-3">
@@ -167,26 +173,37 @@
             <div class="col-sm-2">
               <label>Carton Qty</label>
               <input  [(ngModel)] = "items[i].cartonQty"  name="cartonQty{{i}}" (change)="cartonValue($event)"
-                      min="1" type="number"  class="form-control" placeholder="">
+                      min="1" type="number"  class="form-control" placeholder="" required #cartonQty="ngModel"
+                      [class.is-invalid]="cartonQty.invalid && cartonQty.touched">
+
+              <small class="text-danger" *ngIf="cartonQty.invalid && cartonQty.touched">Carton Quantity is required </small>
             </div>
 
             <div class="col-sm-2">
               <label>Dozen Qty</label>
               <input  [(ngModel)] = "items[i].dznQty" name="dznQty{{i}}" (change)="dznValue($event)"
-                      min="1" type="number" class="form-control" placeholder="">
+                      min="1" type="number" class="form-control" placeholder="" required #dznQty="ngModel"
+                      [class.is-invalid]="dznQty.invalid && dznQty.touched">
+
+              <small class="text-danger" *ngIf="dznQty.invalid && dznQty.touched">Carton Quantity is required </small>
             </div>
 
 
             <div class="col-sm-2">
               <label>Piece Qty</label>
               <input  [(ngModel)] = "items[i].pieceQty" name="pieceQty{{i}}" (change)="pieceValue($event)"
-                      min="1" type="number" class="form-control" placeholder="">
+                      min="1" type="number" class="form-control" placeholder="" required #pieceQty="ngModel"
+                      [class.is-invalid]="pieceQty.invalid && pieceQty.touched">
+
+              <small class="text-danger" *ngIf="pieceQty.invalid && pieceQty.touched">Piece Quantity is required </small>
             </div>
 
             <div class="col-sm-5">
               <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Expire Date</label>
-              <input  [(ngModel)] = "items[i].expireDate" name="expireDate{{i}}"  class="form-control" type="date" >
-              <!--<small class="text-danger">{{errorMsg.inventoryDate}}</small>-->
+              <input  [(ngModel)] = "items[i].expireDate" name="expireDate{{i}}"  class="form-control" type="date" required #expireDate="ngModel"
+                      [class.is-invalid]="expireDate.invalid && expireDate.touched">
+
+              <small class="text-danger" *ngIf="expireDate.invalid && expireDate.touched">Expire Date is required </small>
 
             </div>
 
@@ -227,7 +244,10 @@
             <div class="col-sm-3">
               <label>Currency Rate</label>
               <input  [(ngModel)] = "items[i].currencyRate" name="currencyRate{{i}}" (change)="rateValue($event)"
-                      min="1" type="number" class="form-control" placeholder="">
+                      min="1" type="number" class="form-control" placeholder="" required #currencyRate="ngModel"
+                      [class.is-invalid]="currencyRate.invalid && currencyRate.touched">
+
+              <small class="text-danger" *ngIf="currencyRate.invalid && currencyRate.touched">Carton Quantity is required </small>
             </div>
 
             <div class="col-sm-3">
@@ -436,7 +456,7 @@
     </div>
 
 
-    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" [disabled]="inventoryForm.invalid" value="submit" class="btn btn-primary">Submit</button>
 
 
   </app-card>
