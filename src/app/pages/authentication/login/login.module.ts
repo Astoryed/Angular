@@ -6,6 +6,8 @@ import { WithHeaderFooterComponent } from './with-header-footer/with-header-foot
 import { WithSocialComponent } from './with-social/with-social.component';
 import { WithSocialHeaderFooterComponent } from './with-social-header-footer/with-social-header-footer.component';
 import {SharedModule} from '../../../shared/shared.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 export const LoginRoutes: Routes = [
   {
@@ -15,7 +17,7 @@ export const LoginRoutes: Routes = [
     },
     children: [
       {
-        path: 'with-bg-image',
+        path: 'default',
         component: WithBgImageComponent,
         data: {
           breadcrumb: 'Login'
@@ -47,7 +49,9 @@ export const LoginRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(LoginRoutes),
-    SharedModule
+    SharedModule,
+      FormsModule,
+      ReactiveFormsModule
   ],
   declarations: [WithBgImageComponent, WithHeaderFooterComponent, WithSocialComponent, WithSocialHeaderFooterComponent]
 })

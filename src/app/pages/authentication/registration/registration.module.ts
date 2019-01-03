@@ -8,6 +8,8 @@ import { WithSocialHeaderFooterComponent } from './with-social-header-footer/wit
 import { MultiStepComponent } from './multi-step/multi-step.component';
 import {SharedModule} from '../../../shared/shared.module';
 import {FormWizardModule} from 'angular2-wizard';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 export const RegistrationRoutes: Routes = [
   {
@@ -56,7 +58,9 @@ export const RegistrationRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(RegistrationRoutes),
     SharedModule,
-    FormWizardModule
+    FormWizardModule,
+      FormsModule,
+      ReactiveFormsModule
   ],
   declarations: [WithBgImageComponent, WithHeaderFooterComponent, WithSocialComponent, WithSocialHeaderFooterComponent, MultiStepComponent]
 })

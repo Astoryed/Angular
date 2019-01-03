@@ -1,0 +1,87 @@
+
+<form (submit)="createWarehouse()">
+
+  <app-card [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <div class="customHeading" *ngIf="warehouse._id == undefined; else titleName">
+      <h3>Create Warehouse</h3>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h3>Update Warehouse</h3>
+      </div>
+
+    </ng-template>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Warehouse Name:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "warehouse.warehouseName" name="warehouseName" type="text" class="form-control" placeholder="">
+        <small class="text-danger">{{errorMsg.warehouseName}}</small>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Warehouse Code:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "warehouse.warehouseCode" name="warehouseCode" type="text" class="form-control" placeholder="">
+        <small class="text-danger">{{errorMsg.warehouseCode}}</small>
+      </div>
+    </div>
+
+    <div class="form-group row" >
+      <label class="col-sm-2 col-form-label">Warehouse Location:</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "warehouse.warehouseLocation" name="warehouseLocation" class="form-control" required>
+          <!--<option value="A">A</option>-->
+          <!--<option value="B">B</option>-->
+          <!--<option value="C">C</option>-->
+
+          <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+        </select>
+        <small class="text-danger">{{errorMsg.warehouseLocation}}</small>
+      </div>
+    </div>
+
+
+    <!--<div class="form-group row" >-->
+      <!--<label class="col-sm-2 col-form-label">Warehouse Cities:</label>-->
+      <!--<div class="col-sm-10">-->
+        <!--<select name="category" class="form-control">-->
+          <!--<option *ngFor="let cityName of cityNames" value="{{cityName}}">{{cityName}}</option>-->
+        <!--</select>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+
+    <div class="form-group row" *ngIf="warehouse._id != undefined">
+      <label class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "warehouse.status" name="status" class="form-control">
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="warehouse._id == undefined; else buttonName">
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Create Warehouse</button>
+      </div>
+    </div>
+
+    <ng-template #buttonName>
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Update Warehouse</button>
+      </div>
+    </ng-template>
+
+
+  </app-card>
+</form>
+
+

@@ -1,0 +1,104 @@
+
+<form (submit)="createProduct()">
+
+  <app-card [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <div class="customHeading" *ngIf="product._id == undefined; else titleName">
+      <h3>Create Product</h3>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h3>Update Product</h3>
+      </div>
+
+    </ng-template>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Bar Code:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "product.barCode" name="barCode" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.barCode}}</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Carton Code:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "product.cartonCode" name="cartonCode" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.cartonCode}}</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Product Name:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "product.productName" name="productName" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.productName}}</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Product Code:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "product.productCode" name="productCode" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.productCode}}</small>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Brand</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "product.manufacturer" name="manufacturer" class="form-control">
+          <option *ngFor="let brand of brands" value="{{brand.brandName}}">{{brand.brandName}}</option>
+        </select>
+        <small class="text-danger">{{errorMsg.manufacturer}}</small>
+      </div>
+    </div>
+
+
+
+    <b>Alert Quantity</b>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-5">
+        <input [(ngModel)] = "product.minQty" name="minQty" type="text" class="form-control" placeholder="Minimum"  >
+        <small class="text-danger">{{errorMsg.minQty}}</small>
+      <label class="col-sm-2 col-form-label"></label>
+
+        <input [(ngModel)] = "product.maxQty" name="maxQty" type="text" class="form-control" placeholder="Maximum"  >
+        <small class="text-danger">{{errorMsg.maxQty}}</small>
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="product._id != undefined">
+      <label class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "product.status" name="status" class="form-control">
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="product._id == undefined; else buttonName">
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Create Product</button>
+      </div>
+
+    </div>
+
+    <ng-template #buttonName>
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Update Product</button>
+      </div>
+    </ng-template>
+
+
+  </app-card>
+</form>
+
+

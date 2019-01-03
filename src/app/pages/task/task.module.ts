@@ -12,19 +12,11 @@ export const TaskRoutes: Routes = [
       status: false
     },
     children: [
-      {
-        path: 'list',
-        loadChildren: './list-task/list-task.module#ListTaskModule'
-      }, {
-        path: 'board',
-        loadChildren: './board-task/board-task.module#BoardTaskModule'
-      }, {
-        path: 'details',
-        loadChildren: './details-task/details-task.module#DetailsTaskModule'
-      }, {
-        path: 'issue',
-        loadChildren: './issue-task/issue-task.module#IssueTaskModule'
-      }
+        {
+            path: 'details',
+            loadChildren: './details-task/details-task.module#DetailsTaskModule'
+
+        },
     ]
   }
 ];

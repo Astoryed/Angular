@@ -1,0 +1,95 @@
+
+
+<form (submit)="createOrUpdate()">
+
+  <app-card [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+
+    <div class="customHeading" *ngIf="user._id == undefined; else titleName">
+      <h3>Create User</h3>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h3>Update User</h3>
+      </div>
+
+    </ng-template>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">FirstName:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "user.firstName" name="firstName" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.firstName}}</small>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">LastName:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "user.lastName" name="lastName" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.lastName}}</small>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "user.email" name="email" type="email" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.email}}</small>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">password:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "user.password" name="password" type="password" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.password}}</small>
+
+      </div>
+    </div>
+
+
+    <div class="form-group row" *ngIf="user._id != undefined">
+      <label class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "user.status" name="status" class="form-control">
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">User Type</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "user.userType" name="userType" class="form-control">
+          <option value="3">Super Admin</option>
+          <option value="2">Admin</option>
+          <option value="1">User</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div *ngIf="user._id == undefined; else buttonName">
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Create User</button>
+      </div>
+
+    </div>
+
+    <ng-template #buttonName>
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Update User</button>
+      </div>
+    </ng-template>
+
+  </app-card>
+</form>
+
+

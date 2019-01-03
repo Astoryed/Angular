@@ -1,0 +1,63 @@
+
+<form (submit)="createUnit()">
+
+  <app-card [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <div class="customHeading" *ngIf="unit._id == undefined; else titleName">
+      <h3>Create Unit</h3>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h3>Update Unit</h3>
+      </div>
+
+    </ng-template>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Unit:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "unit.unitName" name="unitName" type="text" class="form-control" placeholder="">
+        <small class="text-danger">{{errorMsg.unitName}}</small>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Unit Quantity:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "unit.quantity" name="quantity" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.quantity}}</small>
+      </div>
+    </div>
+
+
+    <div class="form-group row" *ngIf="unit._id != undefined">
+      <label class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "unit.status" name="status" class="form-control">
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="unit._id == undefined; else buttonName">
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Create Unit</button>
+      </div>
+
+    </div>
+
+    <ng-template #buttonName>
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Update Unit</button>
+      </div>
+    </ng-template>
+
+
+  </app-card>
+</form>
+
+

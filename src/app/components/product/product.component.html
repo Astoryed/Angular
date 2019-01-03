@@ -1,0 +1,81 @@
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'Products'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <button type="submit" class="btn btn-primary" (click)="createProduct($event)">Add New Product</button>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Product Code</th>
+          <th>Bar Code</th>
+          <th>Carton Code</th>
+          <th>Brand</th>
+          <th>Min</th>
+          <th>Max</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p }">
+
+        <tr>
+          <td>
+            <i class="icofont icofont-archive text-c-yellow f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{product.productName}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-archive text-c-yellow f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{product.productCode}}</p>
+          </td>
+          <td>
+          <i class="icofont icofont-bar-code text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{product.barCode}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-bar-code text-c-black f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{product.cartonCode}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-user-alt-4 text-c-blue f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{product.manufacturer}}</p>
+          </td>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{product.minQty}}</p>
+          </td>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{product.maxQty}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-play-alt-1 text-c-green f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600" *ngIf="product.status == 1">Active</p>
+            <p class="m-l-10 d-inline-block f-w-600" *ngIf="product.status == 2">Inactive</p>
+          </td>
+          <td>
+            <p class="f-w-600"><i class="icofont icofont-data"></i> {{product.created| date:'shortDate'}}</p>
+          </td>
+          <td>
+            <a href="javascript:" (click)="updateProduct(product)"   data-toggle="tooltip" title="Edit">
+              <i class="icofont icofont-ui-edit text-c-blue f-16"></i></a>
+
+            <a href="javascript:" (click)="deleteProduct(product)" data-toggle="tooltip" title="Remove">
+              <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </app-card>
+
+
+</div>
+
+
+
+

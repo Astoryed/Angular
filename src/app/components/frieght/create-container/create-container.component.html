@@ -1,0 +1,127 @@
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'Frieght Invoice'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+  <form [formGroup]="myForm" novalidate (ngSubmit)="save()">
+  <!-- we will place our fields here -->
+
+    <p>
+      Data from form: {{ myForm.value | json }}
+    </p>
+
+
+  <!-- name -->
+  <div class="form-group">
+    <label>Invoice Number</label>
+    <input type="text" id="invoiceNumber" formControlName="invoiceNumber" name="invoiceNumber">
+    <!--display error message if name is not valid-->
+    <small *ngIf="!myForm.controls.invoiceNumber.valid" class="text-danger">
+      Name is required (minimum 5 characters).
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label>Final Destination</label>
+    <input type="text" formControlName="finalDestination" (change)="getDes($event)">
+
+  </div>
+
+  <div class="form-group">
+    <label>BL Number</label>
+    <input type="text" formControlName="blNumber">
+
+  </div>
+
+  <div class="form-group">
+    <label>MBL Number</label>
+    <input type="text" formControlName="mblNumber">
+
+  </div>
+
+  <div class="form-group">
+    <label>Invoice Date</label>
+    <input type="text" formControlName="invoiceDate">
+
+  </div>
+
+  <div class="form-group">
+    <label>Total Price</label>
+    <input type="text" formControlName="totalPrice">
+
+  </div>
+
+  <div class="form-group">
+    <label>Expense Price</label>
+    <input type="text" formControlName="expensePrice">
+
+  </div>
+
+  <div class="form-group">
+    <label>Average Price</label>
+    <input type="text" formControlName="avgPrice">
+
+  </div>
+
+  <div class="form-group">
+    <label>Total Product Piece</label>
+    <input type="text" formControlName="totalProductPiece">
+
+  </div>
+
+  <div class="form-group">
+    <label>Notes</label>
+    <input type="text" formControlName="notes">
+
+  </div>
+
+  <!-- list of addresses -->
+  <div formArrayName="containers">
+
+    <div *ngFor="let container of myForm.get('containers').value; let i=index">
+      <!-- address header, show remove button when more than one address available -->
+      <div>
+        <span>Container {{i + 1}}</span>
+        <span *ngIf="myForm.controls.containers.controls.length > 1"
+              (click)="removeAddress(i)">
+                </span>
+      </div>
+
+      <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+      <div [formGroupName]="i">
+        <!--street-->
+        <div>
+          <label>Container Number</label>
+          <input type="text" formControlName="containerNumber">
+          <!--display error message if street is not valid-->
+          <small [hidden]="myForm.controls.containers.controls[i].controls.containerNumber.valid">
+            Street is required
+          </small>
+        </div>
+        <!--postcode-->
+        <div>
+          <label>Price</label>
+          <input type="text" formControlName="price">
+        </div>
+
+        <div>
+          <label>Size</label>
+          <input type="text" formControlName="size">
+        </div>
+
+
+        <div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!myForm.valid" (click)="addAddress()">Submit</button>
+      <!--<a href="javascript:" (click)="edit(frieght)"   data-toggle="tooltip" title="Edit">-->
+        <!--<i class="icofont icofont-ui-edit text-c-blue f-16"></i></a>-->
+    </div>
+  </div>
+</form>
+
+
+
+
+
+  </app-card>
+</div>

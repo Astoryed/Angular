@@ -4,8 +4,11 @@ import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-title',
-  template: '<span><a [routerLink]="[\'/check/\']">Form Elements</a></span>'
+  // template: '<span><a [routerLink]="[\'/check/\']">Form Elements</a></span>'
+    template: '<span></span>'
+
 })
+
 export class TitleComponent {
   constructor(private router: Router, private route: ActivatedRoute, private titleService: Title) {
     this.router.events

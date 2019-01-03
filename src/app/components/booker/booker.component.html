@@ -1,0 +1,64 @@
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'Bookers'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <button type="submit" class="btn btn-primary" (click)="createBooker($event)">Add New Booker</button>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Booker Name</th>
+          <th>Booking Date</th>
+          <th>Contact</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let booker of bookers | paginate: { itemsPerPage: 5, currentPage: p }">
+
+        <tr>
+          <td>
+            <i class="icofont icofont-crown text-c-black f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{booker.bookerName}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-crown text-c-black f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{booker.bookingDate| date:'shortDate'}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-crown text-c-black f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600">{{booker.contact}}</p>
+          </td>
+          <td>
+            <i class="icofont icofont-clock-time text-c-green f-16"></i>
+            <p class="m-l-10 d-inline-block f-w-600" *ngIf="booker.status == 1">Active</p>
+            <p class="m-l-10 d-inline-block f-w-600" *ngIf="booker.status == 2">Inactive</p>
+          </td>
+          <td>
+            <p class="f-w-600"><i class="icofont icofont-data"></i> {{booker.created | date:'shortDate'}}</p>
+          </td>
+          <td>
+
+            <a href="javascript:" (click)="updateBooker(booker)" data-toggle="tooltip" title="Edit">
+              <i class="icofont icofont-ui-edit text-c-blue f-16"></i></a>
+
+            <a href="javascript:" (click)="deleteBooker(booker)"  data-toggle="tooltip" title="Remove">
+              <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </app-card>
+
+
+</div>
+
+
+
+

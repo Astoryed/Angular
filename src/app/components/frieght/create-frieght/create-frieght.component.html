@@ -1,0 +1,296 @@
+<form (submit)="createFrieght()" #invoiceForm="ngForm">
+  <!--<form>-->
+  <app-card>
+
+    <div class="customHeading" *ngIf="frieght._id == undefined; else titleName">
+      <h5>Add Frieght Invoice</h5>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h5>Update Frieght Invoice</h5>
+      </div>
+
+    </ng-template>
+
+
+    <!--Row 1 Start-->
+
+    <div class="row">
+      <div class="col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-4">
+            <label>Invoice No</label>
+            <input [(ngModel)] = "frieght.invoiceNumber" name="invoiceNumber" type="text" class="form-control"
+                   required #invoiceNumber="ngModel" [class.is-invalid]="invoiceNumber.invalid && invoiceNumber.touched">
+
+            <small class="text-danger" *ngIf="invoiceNumber.invalid && invoiceNumber.touched">Invoice is required </small>
+            <!--<small class="text-danger">{{errorMsg.invoice}}</small>-->
+
+          </div>
+
+
+          <div class="col-sm-4">
+            <label>Client</label>
+            <input [(ngModel)] = "frieght.client"  name="client" type="text" class="form-control" placeholder=""
+                   required #client="ngModel" [class.is-invalid]="client.invalid && client.touched">
+
+            <small class="text-danger" *ngIf="client.invalid && client.touched">Client is required </small>
+            <!--<small class="text-danger">{{errorMsg.client}}</small>-->
+
+          </div>
+
+          <div class="col-sm-4">
+            <label>Final Destination</label>
+            <input [(ngModel)] = "frieght.finalDestination" name="finalDestination" type="text" class="form-control" placeholder=""
+                   required #finalDestination="ngModel" [class.is-invalid]="finalDestination.invalid && finalDestination.touched">
+
+            <small class="text-danger" *ngIf="finalDestination.invalid && finalDestination.touched">Final Destination is required </small>
+            <!--<small class="text-danger">{{errorMsg.finalDestination}}</small>-->
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-3">
+            <label>BL/AWB No</label>
+            <input [(ngModel)] = "frieght.blNumber" name="blNumber" type="text" class="form-control" placeholder=""
+                   required #blNumber="ngModel" [class.is-invalid]="blNumber.invalid && blNumber.touched">
+
+            <small class="text-danger" *ngIf="blNumber.invalid && blNumber.touched">BL Number is required </small>
+            <!--<small class="text-danger">{{errorMsg.blNumber}}</small>-->
+
+          </div>
+
+          <div class="col-sm-4">
+            <label>MBL/MAWB No</label>
+            <input [(ngModel)] = "frieght.mblNumber" name="mblNumber" type="text" class="form-control" placeholder=""
+                   required #mblNumber="ngModel" [class.is-invalid]="mblNumber.invalid && mblNumber.touched">
+
+            <small class="text-danger" *ngIf="mblNumber.invalid && mblNumber.touched">Mbl Number is required </small>
+            <!--<small class="text-danger">{{errorMsg.mblNumber}}</small>-->
+
+          </div>
+
+          <div class="col-sm-5">
+            <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Date</label>
+            <input [(ngModel)] = "frieght.invoiceDate" name="invoiceDate"  class="form-control" type="date"
+                   required #invoiceDate="ngModel" [class.is-invalid]="invoiceDate.invalid && invoiceDate.touched">
+
+            <small class="text-danger" *ngIf="invoiceDate.invalid && invoiceDate.touched">Invoice Date is required </small>
+            <!--<small class="text-danger">{{errorMsg.invoiceDate}}</small>-->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!----=====================Loop Fields========================================-->
+
+    <div *ngIf="frieght._id !== undefined">
+      <div class="row" *ngFor="let con of frieght.container; let i = index">
+        <div class="col-sm-6 mobile-inputs">
+
+          <div class="form-group row">
+
+            <div class="col-sm-4">
+              <label>Container No</label>
+              <input [(ngModel)] = "con.containerNumber" name="container[i].containerNumber" type="text" class="form-control" placeholder=""
+                     required #containerNumber="ngModel" [class.is-invalid]="containerNumber.invalid && containerNumber.touched" readonly>
+
+              <small class="text-danger" *ngIf="containerNumber.invalid && containerNumber.touched">Container Number is required </small>
+
+            </div>
+
+            <div class="col-sm-4">
+              <label>Container Price</label>
+              <input [(ngModel)] = "con.price" name="container[i].price" (change)="valueOne($event) " type="number" class="form-control" placeholder=""
+                     required #price="ngModel" [class.is-invalid]="price.invalid && price.touched" readonly>
+
+              <small class="text-danger" *ngIf="price.invalid && price.touched">Price is required</small>
+            </div>
+
+            <div class="col-sm-4">
+              <label>Size</label>
+              <input [(ngModel)] = "con.size" name="container[i].size" type="text" class="form-control" placeholder=""
+                     required #size="ngModel" [class.is-invalid]="size.invalid && size.touched" readonly>
+
+              <small class="text-danger" *ngIf="size.invalid && size.touched">Size is required </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 mobile-inputs">
+
+          <div class="col-sm-4 Btn">
+
+            <a data-toggle="tooltip" title="Add" (click)="addContainer()">
+              <i class="icofont icofont-ui-add text-c-green"></i></a>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+
+            <!--<span *ngIf="container[1]">-->
+            <a data-toggle="tooltip" title="Remove" (click)="deleteContainer(i)">
+              <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+            <!--</span>-->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!----===========================Loop Fields==================================-->
+
+    <div *ngIf="frieght._id == undefined">
+
+      <div class="row" *ngFor="let con of container; let i = index">
+        <div class="col-sm-6 mobile-inputs">
+
+          <div class="form-group row">
+
+            <div class="col-sm-4">
+              <label>Container No</label>
+              <input [(ngModel)] = "container[i].containerNumber" name="containerNumber{{i}}"  type="text" class="form-control"
+                     placeholder="">
+              <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
+
+
+            </div>
+
+            <div class="col-sm-4">
+              <label>Container Price</label>
+              <input [(ngModel)] = "container[i].price" name="price{{i}}" (change)="valueOne($event) " type="text"   class="form-control" placeholder="">
+              <!--<small class="text-danger">{{errorMsg.price}}</small>-->
+
+            </div>
+
+            <div class="col-sm-4">
+              <label>Size</label>
+              <input [(ngModel)] = "container[i].size"  name="size{{i}}" type="text" class="form-control" placeholder="">
+              <!--<small class="text-danger">{{errorMsg.size}}</small>-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-sm-6 mobile-inputs">
+
+          <div class="form-group row">
+
+            <div class="col-sm-4 Btn">
+
+              <a data-toggle="tooltip" title="Add" (click)="addContainer()">
+                <i class="icofont icofont-ui-add text-c-green"></i></a>
+
+              <!--<span *ngIf="container[1]">-->
+              <a data-toggle="tooltip" title="Remove" (click)="deleteContainer(i)">
+                <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+              <!--</span>-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!--=============================================================================-->
+
+    <!--Row 3 Start-->
+
+
+    <div class="row">
+      <div class="col-sm-8 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-4">
+            <label>Total Container Price</label>
+            <input [(ngModel)] = "frieght.containerPrice" name="containerPrice" value="{{totalCon}}"  type="text" class="form-control" placeholder="" readonly>
+          </div>
+
+          <div class="col-sm-4">
+            <label>Expense Price</label>
+            <input [(ngModel)] = "frieght.expensePrice" name="expensePrice" (change)="valueTwo($event) " type="text" class="form-control" placeholder=""
+                   required #expensePrice="ngModel" [class.is-invalid]="expensePrice.invalid && expensePrice.touched">
+
+            <small class="text-danger" *ngIf="expensePrice.invalid && expensePrice.touched">Expense Price is required </small>
+            <small class="text-danger">{{errorMsg.expensePrice}}</small>
+
+          </div>
+          <div class="col-sm-4">
+            <label>Total Price</label>
+            <input [(ngModel)] = "frieght.totalPrice" name="totalPrice" type="text" class="form-control"
+                   value="{{total}}" placeholder="" readonly>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!--Row 4 Start-->
+
+    <div class="row">
+      <div class="col-sm-8 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-4">
+            <label>Total Product Piece</label>
+            <input [(ngModel)] = "frieght.totalProductPiece" name="totalProductPiece" (change)="totalPieceValue($event)" type="text" class="form-control" placeholder=""
+                   required #totalProductPiece="ngModel" [class.is-invalid]="totalProductPiece.invalid && totalProductPiece.touched">
+
+            <small class="text-danger" *ngIf="totalProductPiece.invalid && totalProductPiece.touched">Total Product Price is required </small>
+            <!--<small class="text-danger">{{errorMsg.totalProductPiece}}</small>-->
+
+          </div>
+
+
+          <div class="col-sm-4">
+            <label>Average Price</label>
+            <input [(ngModel)] = "frieght.avgPrice" name="avgPrice" value="{{totalAvg}}" type="number" class="form-control" placeholder=""  readonly>
+          </div>
+
+          <div class="col-sm-6">
+            <label>Notes</label>
+            <textarea [(ngModel)] = "frieght.notes" name="notes" rows="3"  type="text" class="form-control" placeholder=""></textarea>
+            <!--<small class="text-danger">{{errorMsg.notes}}</small>-->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+    <button [disabled]="invoiceForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+
+
+  </app-card>
+
+</form>

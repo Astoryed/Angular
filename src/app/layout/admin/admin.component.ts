@@ -1,6 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
 import {MenuItems} from '../../shared/menu-items/menu-items';
+import { Router } from '@angular/router';
+import {User} from '../../components/users/user';
 
 @Component({
   selector: 'app-admin',
@@ -82,6 +84,11 @@ export class AdminComponent implements OnInit {
 
   isCollapsedMobile: string;
   isCollapsedSideBar: string;
+  isCollapsedMenu: string;
+  isCollapsedWareHouse: string;
+  isCollapsedOffice: string;
+  isCollapsedContact: string;
+
 
   chatToggle: string;
   chatToggleInverse: string;
@@ -102,7 +109,7 @@ export class AdminComponent implements OnInit {
 /*  @ViewChild('toggleButton') toggle_button: ElementRef;
   @ViewChild('sideMenu') side_menu: ElementRef;*/
 
-  constructor(public menuItems: MenuItems) {
+  constructor(public menuItems: MenuItems, private _router: Router) {
     this.navType = 'st2';
     this.themeLayout = 'vertical';
     this.vNavigationView = 'view1';
@@ -124,6 +131,12 @@ export class AdminComponent implements OnInit {
 
     this.isCollapsedMobile = 'no-block';
     this.isCollapsedSideBar = 'no-block';
+    this.isCollapsedMenu = 'no-block';
+    this.isCollapsedWareHouse = 'no-block';
+    this.isCollapsedOffice = 'no-block';
+    this.isCollapsedContact = 'no-block';
+
+
 
     this.chatToggle = 'out';
     this.chatToggleInverse = 'in';
@@ -145,8 +158,23 @@ export class AdminComponent implements OnInit {
     this.setMenuAttributes(this.windowWidth);
   }
 
+    public users:User;
+
   ngOnInit() {
-    this.setBackgroundPattern('pattern2');
+
+    let jwt = localStorage.getItem('token');
+
+    let jwtData = jwt.split('.')[1];
+
+    let decode = window.atob(jwtData);
+
+      this.users = JSON.parse(decode);
+
+    // return this.userData.firstName
+
+      console.log(this.users);
+    // this.username = this.userData.firstName;
+
   }
 
   onResize(event) {
@@ -233,6 +261,22 @@ export class AdminComponent implements OnInit {
     this.isCollapsedSideBar = this.isCollapsedSideBar === 'yes-block' ? 'no-block' : 'yes-block';
   }
 
+    toggleOpenedMenu() {
+        this.isCollapsedMenu = this.isCollapsedMenu === 'yes-block' ? 'no-block' : 'yes-block';
+    }
+
+    toggleOpenedWareHouse() {
+        this.isCollapsedWareHouse = this.isCollapsedWareHouse === 'yes-block' ? 'no-block' : 'yes-block';
+    }
+
+    toggleOpenedOffice() {
+        this.isCollapsedOffice = this.isCollapsedOffice === 'yes-block' ? 'no-block' : 'yes-block';
+    }
+
+    toggleOpenedContact() {
+        this.isCollapsedContact = this.isCollapsedContact === 'yes-block' ? 'no-block' : 'yes-block';
+    }
+
   toggleRightbar() {
     this.configOpenRightBar = this.configOpenRightBar === 'open' ? '' : 'open';
   }
@@ -274,4 +318,10 @@ export class AdminComponent implements OnInit {
       this.navBarTheme = 'theme1';
     }
   }
+
+  logoutUser(){
+    localStorage.removeItem('token')
+    this._router.navigate(['/login/default'])
+  }
+
 }

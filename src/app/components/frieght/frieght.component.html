@@ -1,0 +1,120 @@
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'Frieght Invoice'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <button type="submit" class="btn btn-primary" (click)="createFrieght($event)">New Frieght Invoice</button>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Invoice</th>
+          <th>Average Price</th>
+          <th>Container No</th>
+          <th>Container Price</th>
+          <th>Total Container Price</th>
+          <th>Expense</th>
+          <th>Total Price</th>
+          <th>Total Piece</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody *ngFor="let frieght of frieghtes | paginate: { itemsPerPage: 5, currentPage: p }">
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{frieght.invoiceNumber}}</p>
+        </td>
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{frieght.avgPrice}}</p>
+        </td>
+
+        <td >
+          <i class="icofont text-c-black f-16" ></i>
+          <!--<p class="m-l-10 d-inline-block f-w-600" *ngFor="let con of frieght.container let i = index">-->
+          <!--{{frieght.container[i].containerNumber}}-->
+          <!--</p>-->
+
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of frieght.container">
+                {{ con.containerNumber }}
+              </li>
+            </ul>
+
+        </td>
+
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+
+          <ul class="m-l-10 d-inline-block f-w-600">
+            <li *ngFor="let con of frieght.container">
+              {{ con.price }}
+            </li>
+          </ul>
+        </td>
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{frieght.containerPrice}}</p>
+        </td>
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{frieght.expensePrice}}</p>
+        </td>
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{frieght.totalPrice}}</p>
+        </td>
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{frieght.totalProductPiece}}</p>
+        </td>
+
+        <td>
+          <i class="icofont text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600" *ngIf="frieght.status == 1">Active</p>
+          <p class="m-l-10 d-inline-block f-w-600" *ngIf="frieght.status == 2">Inactive</p>
+        </td>
+
+        <td>
+          <p class="f-w-600"><i class="icofont icofont-data"></i> {{frieght.created| date:'shortDate'}}</p>
+        </td>
+        <td>
+
+          <a href="javascript:" (click)="viewFrieght(frieght)" data-toggle="tooltip" title="View">
+            <i class="icofont icofont-eye-alt text-c-green f-16"></i></a>
+          <span>&nbsp;</span>
+          <a href="javascript:" (click)="updateFrieght(frieght)"   data-toggle="tooltip" title="Edit">
+            <i class="icofont icofont-ui-edit text-c-blue f-16"></i></a>
+
+          <a href="javascript:" (click)="deleteFrieght(frieght)" data-toggle="tooltip" title="Remove">
+            <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+
+        </td>c
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </app-card>
+
+
+</div>
+
+
+
+

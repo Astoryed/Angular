@@ -18,6 +18,7 @@ import {ModalAnimationComponent} from './modal-animation/modal-animation.compone
 import {ModalBasicComponent} from './modal-basic/modal-basic.component';
 import {DataFilterPipe} from "./element/data-filter.pipe";
 
+
 @NgModule({
   imports: [
     CommonModule,

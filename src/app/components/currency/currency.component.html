@@ -1,0 +1,57 @@
+
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'Currency'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <button type="submit" class="btn btn-primary" (click)="createCurrency($event)">Add New Currency</button>
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Currencies</th>
+          <th>Status</th>
+
+          <th>Created</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody *ngFor="let currency of currencies | paginate: { itemsPerPage: 5, currentPage: p }">
+
+        <td>
+          <i class="icofont icofont-site-map text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600">{{currency.currencyName}}</p>
+        </td>
+
+        <td>
+          <i class="icofont icofont-site-map text-c-black f-16"></i>
+          <p class="m-l-10 d-inline-block f-w-600" *ngIf="currency.status == 1">Active</p>
+          <p class="m-l-10 d-inline-block f-w-600" *ngIf="currency.status == 2">Inactive</p>
+        </td>
+
+        <td>
+          <p class="f-w-600"><i class="icofont icofont-data"></i> {{currency.created| date:'shortDate'}}</p>
+        </td>
+        <td>
+          <a href="javascript:" (click)="updateCurrency(currency)"   data-toggle="tooltip" title="Edit">
+            <i class="icofont icofont-ui-edit text-c-blue f-16"></i></a>
+
+          <a href="javascript:" (click)="deleteCurrency(currency)" data-toggle="tooltip" title="Remove">
+            <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+
+        </td>
+
+        </tbody>
+      </table>
+    </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </app-card>
+
+
+</div>
+
+
+
+

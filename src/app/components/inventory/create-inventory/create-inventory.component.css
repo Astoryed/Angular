@@ -1,0 +1,21 @@
+.addBtn{
+    margin: 0;
+    padding: 30px 0px;
+}
+.customHeading {
+    padding: 10px 0px 30px 0px;
+
+}
+
+.customBtn{
+    padding: 10px 0px 30px 0px;
+
+}
+
+.smallFont{
+    font-size: 10px;
+}
+
+.form-control {
+    font-size: 10px;
+}

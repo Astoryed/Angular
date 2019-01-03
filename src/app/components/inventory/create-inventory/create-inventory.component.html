@@ -1,0 +1,444 @@
+<form (submit)="createInventory()">
+  <app-card>
+
+    <div class="customHeading" *ngIf="inventory._id == undefined; else titleName">
+      <h5>Add Inventory</h5>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h5>Update Inventory</h5>
+      </div>
+
+    </ng-template>
+
+    <!--Row 1 Start-->
+
+    <div class="row">
+      <div class="col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-4">
+            <label>Inventory No</label>
+            <input [(ngModel)] = "inventory.inventoryNumber" name="inventoryNumber" type="text" class="form-control" placeholder="{{random}}" readonly>
+          </div>
+
+
+          <div class="col-sm-4">
+            <label>Container No</label>
+
+              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control">
+                <option *ngFor="let cont of con" value="{{cont.containerNumber}}">{{cont.containerNumber}}</option>
+                <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
+
+              </select>
+          </div>
+
+
+          <div class="col-sm-4">
+            <label>Batch No</label>
+            <input [(ngModel)] = "inventory.batchNumber" name="batchNumber" type="text" class="form-control" placeholder="">
+            <small class="text-danger">{{errorMsg.batchNumber}}</small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-4">
+            <label>Status</label>
+
+            <select  [(ngModel)] = "inventory.status" name="status" class="form-control">
+              <option value="1">Active</option>
+              <option value="2">Inactive</option>
+            </select>
+            <!--<small class="text-danger">{{errorMsg.status}}</small>-->
+
+          </div>
+
+          <div class="col-sm-5">
+            <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Date</label>
+            <input  [(ngModel)] = "inventory.inventoryDate" name="inventoryDate"  class="form-control" type="date" >
+            <!--<small class="text-danger">{{errorMsg.inventoryDate}}</small>-->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!--Row 2 Start-->
+
+
+    <div class="row">
+      <div class="col-sm-8 mobile-inputs">
+
+        <div class="form-group row">
+
+
+          <div class="pcoded-search col-sm-4" >
+            <label>Product Code</label>
+            <input [(ngModel)] = "inventory.productCode" name="productCode" (keyup)='search($event)'
+                   class="form-control" placeholder="Search" type="search" value="{{inventory.productCode}}">
+            <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
+
+          </div>
+
+
+          <!--<input type="search"  [(ngModel)] = "search" name="productCode"/>-->
+
+
+          <!--<div class="col-sm-4">-->
+            <!--<label>Product Code</label>-->
+            <!--<select [(ngModel)] = "inventory.productCode" name="productCode" class="form-control" (change)="codeProduct($event)">-->
+              <!--<option *ngFor="let product of products" value="{{product._id}}">{{product.productCode}}</option>-->
+            <!--</select>-->
+            <!--&lt;!&ndash;<small class="text-danger">{{errorMsg.productCode}}</small>&ndash;&gt;-->
+
+          <!--</div>-->
+
+          <!--<div class="pcoded-search col-sm-4">-->
+            <!--<label>Barcode Name</label>-->
+            <!--<input [(ngModel)] = "inventory.barCode" name="barCode" (keyup)='searchBarCode($event)'-->
+                   <!--class="form-control" placeholder="Search" type="search" value="{{inventory.barCode}}">-->
+            <!--<span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>-->
+
+            <!--&lt;!&ndash;<small class="text-danger">{{errorMsg.barCodeName}}</small>&ndash;&gt;-->
+
+          <!--</div>-->
+
+          <div class="col-sm-4">
+            <label>Barcode Name</label>
+            <select [(ngModel)] = "inventory.barCode" name="barCode" class="form-control">
+              <option *ngFor="let product of products" value="{{product.barCode}}">{{product.barCode}}</option>
+            </select>
+            <!--<small class="text-danger">{{errorMsg.barCodeName}}</small>-->
+
+          </div>
+
+          <div class="col-sm-4">
+            <label>Average Price From Expense</label>
+            <input  [(ngModel)] = "inventory.avgPrice" name="avgPrice" (change)="avgValue($event)"  type="text" class="form-control" placeholder="">
+            <!--<small class="text-danger">{{errorMsg.avgPrice}}</small>-->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!--===================================Repeat First Row==================================================-->
+
+    <!--Create Function-->
+
+
+    <!--<div *ngIf="findProductCode != null">-->
+
+    <div *ngIf="inventory._id == undefined">
+    <div id="secRow" *ngFor="let item of items; let i = index">
+
+
+      <div class="row smallFont">
+        <div class="col-sm-6 mobile-inputs">
+
+          <div class="form-group row">
+
+            <div class="col-sm-3">
+              <label>Item Name</label>
+              <input  [(ngModel)] = "items[i].itemName" name="itemName{{i}}"
+                      type="text" class="form-control" placeholder="">
+            </div>
+
+            <div class="col-sm-3">
+              <label>Carton Type</label>
+              <select [(ngModel)] = "items[i].cartonType" name="cartonType{{i}}" class="form-control">
+                <option *ngFor="let unit of units" value="{{unit.unitName}}">{{unit.unitName}}</option>
+              </select>
+            </div>
+
+            <div class="col-sm-2">
+              <label>Carton Qty</label>
+              <input  [(ngModel)] = "items[i].cartonQty"  name="cartonQty{{i}}" (change)="cartonValue($event)"
+                      min="1" type="number"  class="form-control" placeholder="">
+            </div>
+
+            <div class="col-sm-2">
+              <label>Dozen Qty</label>
+              <input  [(ngModel)] = "items[i].dznQty" name="dznQty{{i}}" (change)="dznValue($event)"
+                      min="1" type="number" class="form-control" placeholder="">
+            </div>
+
+
+            <div class="col-sm-2">
+              <label>Piece Qty</label>
+              <input  [(ngModel)] = "items[i].pieceQty" name="pieceQty{{i}}" (change)="pieceValue($event)"
+                      min="1" type="number" class="form-control" placeholder="">
+            </div>
+
+            <div class="col-sm-5">
+              <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Expire Date</label>
+              <input  [(ngModel)] = "items[i].expireDate" name="expireDate{{i}}"  class="form-control" type="date" >
+              <!--<small class="text-danger">{{errorMsg.inventoryDate}}</small>-->
+
+            </div>
+
+
+
+            <div class="addBtn">
+              <a data-toggle="tooltip" title="Add" (click)="addItems()">
+                <i class="icofont icofont-ui-add text-c-green f-16"></i></a>
+            </div>
+            &nbsp; &nbsp;
+
+            <div class="addBtn">
+              <a data-toggle="tooltip" title="Remove" (click)="deleteItems(i)">
+                <i class="icofont icofont-ui-delete text-c-pink f-16 customBtn"></i></a>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-6 mobile-inputs">
+
+          <div class="form-group row">
+
+            <div class="col-sm-2">
+              <label>Total Piece</label>
+              <input  [(ngModel)] = "items[i].totalPiece" name="totalPiece{{i}}" value="{{totalInventory(items[i].cartonQty, items[i].dznQty, items[i].pieceQty, i)}}"
+                      min="1" type="number" class="form-control" placeholder="" readonly>
+            </div>
+
+            <div class="col-sm-3">
+              <label>Currency</label>
+              <select [(ngModel)] = "items[i].currency" name="currency{{i}}" class="form-control" (change)="currencyValue($event)">
+                <option *ngFor="let currency of currencies" value="{{currency.currencyName}}" >{{currency.currencyName}}</option>
+              </select>
+            </div>
+
+
+            <div class="col-sm-3">
+              <label>Currency Rate</label>
+              <input  [(ngModel)] = "items[i].currencyRate" name="currencyRate{{i}}" (change)="rateValue($event)"
+                      min="1" type="number" class="form-control" placeholder="">
+            </div>
+
+            <div class="col-sm-3">
+              <label>Selling Price</label>
+              <input [(ngModel)] = "items[i].sellingPrice" name="sellingPrice{{i}}" value="{{sell(items[i].currencyRate, i)}}"
+                     min="1" type="number" class="form-control" placeholder="Rs" readonly>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    </div>
+<!--</div>-->
+
+    <!--=====================================================================================-->
+
+<!--THis is Update Function-->
+
+    <div id="doubleRow" *ngIf="inventory._id !== undefined">
+
+      <div class="row" *ngFor="let item of inventory.items">
+        <div *ngFor="let item of items; let i = index">
+
+
+          <div class="row smallFont">
+            <div class="col-sm-6 mobile-inputs">
+
+              <div class="form-group row">
+
+                <div class="col-sm-3">
+                  <label>Item Name</label>
+                  <input  [(ngModel)] = "items[i].itemName" name="itemName{{i}}"
+                          type="text" class="form-control" placeholder="">
+                </div>
+
+                <div class="col-sm-3">
+                  <label>Carton Type</label>
+                  <select [(ngModel)] = "items[i].cartonType" name="cartonType{{i}}" class="form-control">
+                    <option *ngFor="let unit of units" value="{{unit.unitName}}">{{unit.unitName}}</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-2">
+                  <label>Carton Qty</label>
+                  <input  [(ngModel)] = "items[i].cartonQty"  name="cartonQty{{i}}" (change)="cartonValue($event)"
+                          min="1" type="number"  class="form-control" placeholder="">
+                </div>
+
+                <div class="col-sm-2">
+                  <label>Dozen Qty</label>
+                  <input  [(ngModel)] = "items[i].dznQty" name="dznQty{{i}}" (change)="dznValue($event)"
+                          min="1" type="number" class="form-control" placeholder="">
+                </div>
+
+
+                <div class="col-sm-2">
+                  <label>Piece Qty</label>
+                  <input  [(ngModel)] = "items[i].pieceQty" name="pieceQty{{i}}" (change)="pieceValue($event)"
+                          min="1" type="number" class="form-control" placeholder="">
+                </div>
+
+
+                <div class="col-sm-5">
+                  <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Expire Date</label>
+                  <input  [(ngModel)] = "items[i].expireDate" name="expireDate{{i}}"  class="form-control" type="date" >
+                  <!--<small class="text-danger">{{errorMsg.inventoryDate}}</small>-->
+
+                </div>
+
+
+                <div class="addBtn">
+                  <a data-toggle="tooltip" title="Add" (click)="addItems()">
+                    <i class="icofont icofont-ui-add text-c-green f-16"></i></a>
+                </div>
+                &nbsp; &nbsp;
+
+                <div class="addBtn">
+                  <a data-toggle="tooltip" title="Remove" (click)="deleteItems(i)">
+                    <i class="icofont icofont-ui-delete text-c-pink f-16 customBtn"></i></a>
+                </div>
+
+
+              </div>
+            </div>
+
+            <div class="col-sm-6 mobile-inputs">
+
+              <div class="form-group row">
+
+                <div class="col-sm-2">
+                  <label>Total Piece</label>
+                  <input  [(ngModel)] = "items[i].totalPiece" name="totalPiece{{i}}" value="{{totalInventory(items[i].cartonQty, items[i].dznQty, items[i].pieceQty,i)}}"
+                          min="1" type="number" class="form-control" placeholder="" readonly>
+                </div>
+
+                <div class="col-sm-3">
+                  <label>Currency</label>
+                  <select [(ngModel)] = "items[i].currency" name="currency{{i}}" class="form-control" (change)="currencyValue($event)">
+                    <option *ngFor="let currency of currencies" value="{{currency.currencyName}}" >{{currency.currencyName}}</option>
+                  </select>
+                </div>
+
+
+                <div class="col-sm-3">
+                  <label>Currency Rate</label>
+                  <input  [(ngModel)] = "items[i].currencyRate" name="currencyRate{{i}}" (change)="rateValue($event)"
+                          min="1" type="number" class="form-control" placeholder="">
+                </div>
+
+                <div class="col-sm-3">
+                  <label>Selling Price</label>
+                  <input [(ngModel)] = "items[i].sellingPrice" name="sellingPrice{{i}}" value="{{sell(items[i].currencyRate, i)}}"
+                         min="1" type="number" class="form-control" placeholder="Rs" readonly>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--This Update Funtion is End-->
+
+    <!--=====================================================================================-->
+
+
+
+
+    <!--Row 5 Start-->
+
+    <div class="row">
+      <div class="col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+          <div class="col-sm-4">
+            <label>Total Carton</label>
+            <input [(ngModel)] = "inventory.totalCarton" name="totalCarton" value="{{totalCartonQty}}"
+                   min="1" type="number" class="form-control" placeholder="" readonly>
+          </div>
+
+          <div class="col-sm-4">
+            <label>Total Dozen</label>
+            <input [(ngModel)] = "inventory.totalDzn" name="totalDzn" value="{{totalDznQty}}"
+                   min="1" type="number" class="form-control" placeholder="" readonly>
+          </div>
+
+          <div class="col-sm-4">
+            <label>Total Pieces</label>
+            <input  [(ngModel)] = "inventory.totalPieces" name="totalPieces" value="{{totalPiecesQty}}"
+                    min="1" type="number" class="form-control" placeholder="" readonly>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+          <!--<div class="col-sm-4">-->
+            <!--<label>Total Price $</label>-->
+            <!--<input  [(ngModel)] = "inventory.totalPriceDollar" name="totalPriceDollar"  type="text" class="form-control" placeholder="">-->
+          <!--</div>-->
+
+          <div class="col-sm-4">
+            <label>Total Price Rs</label>
+            <input  [(ngModel)] = "inventory.totalPriceRs" name="totalPriceRs" value="{{grandTotal}}"
+                    min="1" type="number" class="form-control" placeholder="" readonly>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!--Row 6 Start-->
+
+    <div class="row">
+      <div class="col-sm-8 mobile-inputs">
+
+        <div class="form-group row">
+          <div class="col-sm-6">
+            <label>Notes</label>
+            <textarea  [(ngModel)] = "inventory.notes" name="notes"  type="text" class="form-control" placeholder=""></textarea>
+            <small class="text-danger">{{errorMsg.notes}}</small>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+
+
+  </app-card>
+
+</form>

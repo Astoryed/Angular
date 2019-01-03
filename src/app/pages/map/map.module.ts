@@ -15,10 +15,7 @@ export const MapRoutes: Routes = [
       {
         path: 'google',
         loadChildren: './google-map/google-map.module#GoogleMapModule'
-      }, {
-        path: 'vector',
-        loadChildren: './vector/vector.module#VectorModule'
-      }
+      },
     ]
   }
 ];

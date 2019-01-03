@@ -1,0 +1,68 @@
+
+<form (submit)="createCurrency()">
+
+  <app-card [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <div class="customHeading" *ngIf="currency._id == undefined; else titleName">
+      <h3>Create Currency</h3>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h3>Update Currency</h3>
+      </div>
+
+    </ng-template>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Currency Name</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "currency.currencyName" name="currencyName" class="form-control">
+          <option value="Dollar">Dollar</option>
+          <option value="Pkr">Pkr</option>
+          <option value="Euro">Euro</option>
+        </select>
+        <small class="text-danger">{{errorMsg.currencyName}}</small>
+
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Currency Rate:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "currency.currencyRate" name="currencyRate" type="text" class="form-control" placeholder=""  >
+        <small class="text-danger">{{errorMsg.currencyRate}}</small>
+
+      </div>
+    </div>
+
+
+    <div class="form-group row" *ngIf="currency._id != undefined">
+      <label class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "currency.status" name="status" class="form-control">
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="currency._id == undefined; else buttonName">
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Create Currency</button>
+      </div>
+
+    </div>
+
+    <ng-template #buttonName>
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Update Currency</button>
+      </div>
+    </ng-template>
+
+
+  </app-card>
+</form>
+

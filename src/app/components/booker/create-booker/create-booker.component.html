@@ -1,0 +1,68 @@
+<form (submit)="createBooker()">
+
+  <app-card [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+
+    <div class="customHeading" *ngIf="booker._id == undefined; else titleName">
+      <h3>Create Booker</h3>
+    </div>
+
+    <ng-template #titleName>
+      <div class="customHeading">
+        <h3>Update Booker</h3>
+      </div>
+
+    </ng-template>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Booker Name:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "booker.bookerName" name="bookerName" type="text" class="form-control" placeholder=""  >
+        <!--<small class="text-danger">{{errorMsg.bookerName}}</small>-->
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Booking Date:</label>
+      <div class="col-sm-10">
+        <input  [(ngModel)] = "booker.bookingDate" name="bookingDate"  class="form-control" type="date" >
+        <!--<small class="text-danger">{{errorMsg.bookerName}}</small>-->
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Booker Contact:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)] = "booker.contact" name="bookerContact" type="text" class="form-control" placeholder=""  >
+        <!--<small class="text-danger">{{errorMsg.bookerName}}</small>-->
+      </div>
+    </div>
+
+    <div class="form-group row" *ngIf="booker._id != undefined">
+      <label class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-10">
+        <select [(ngModel)] = "booker.status" name="status" class="form-control">
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="booker._id == undefined; else buttonName">
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Create Booker</button>
+      </div>
+
+    </div>
+
+    <ng-template #buttonName>
+      <div class="customBtn">
+        <button type="submit" value="submit" class="btn btn-primary">Update Booker</button>
+      </div>
+    </ng-template>
+
+
+  </app-card>
+</form>
+
+
