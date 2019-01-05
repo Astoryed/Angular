@@ -15,7 +15,7 @@
     <!--Row 1 Start-->
 
     <div class="row">
-      <div class="col-sm-6 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -28,7 +28,7 @@
           <div class="col-sm-4">
             <label>Container No</label>
 
-              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control" (change)="matchCon($event)">
+              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control">
                 <option *ngFor="let cont of con" value="{{cont.containerNumber}}">{{cont.containerNumber}}</option>
                 <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
 
@@ -130,7 +130,7 @@
 
           <div class="col-sm-4">
             <label>Average Price From Expense</label>
-            <input  [(ngModel)] = "inventory.avgPrice" name="avgPrice" (change)="avgValue($event)"  type="text" class="form-control" placeholder="">
+            <input  [(ngModel)] = "inventory.avgPrice" name="avgPrice"  type="number" class="form-control" placeholder="">
 
           </div>
 
@@ -150,7 +150,7 @@
 
 
       <div class="row smallFont">
-        <div class="col-sm-6 mobile-inputs">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mobile-inputs">
 
           <div class="form-group row">
 
@@ -172,8 +172,8 @@
 
             <div class="col-sm-2">
               <label>Carton Qty</label>
-              <input  [(ngModel)] = "items[i].cartonQty"  name="cartonQty{{i}}" (change)="cartonValue($event)"
-                      min="1" type="number"  class="form-control" placeholder="" required #cartonQty="ngModel"
+              <input  [(ngModel)] = "items[i].cartonQty"  name="cartonQty{{i}}" (change)="addTotal()"
+                      min="0" type="number"  class="form-control" placeholder="" required #cartonQty="ngModel"
                       [class.is-invalid]="cartonQty.invalid && cartonQty.touched">
 
               <small class="text-danger" *ngIf="cartonQty.invalid && cartonQty.touched">Carton Quantity is required </small>
@@ -181,8 +181,8 @@
 
             <div class="col-sm-2">
               <label>Dozen Qty</label>
-              <input  [(ngModel)] = "items[i].dznQty" name="dznQty{{i}}" (change)="dznValue($event)"
-                      min="1" type="number" class="form-control" placeholder="" required #dznQty="ngModel"
+              <input  [(ngModel)] = "items[i].dznQty" name="dznQty{{i}}" (change)="addTotal()"
+                      min="0" type="number" class="form-control" placeholder="" required #dznQty="ngModel"
                       [class.is-invalid]="dznQty.invalid && dznQty.touched">
 
               <small class="text-danger" *ngIf="dznQty.invalid && dznQty.touched">Carton Quantity is required </small>
@@ -191,8 +191,8 @@
 
             <div class="col-sm-2">
               <label>Piece Qty</label>
-              <input  [(ngModel)] = "items[i].pieceQty" name="pieceQty{{i}}" (change)="pieceValue($event)"
-                      min="1" type="number" class="form-control" placeholder="" required #pieceQty="ngModel"
+              <input  [(ngModel)] = "items[i].pieceQty" name="pieceQty{{i}}" (change)="addTotal()"
+                      min="0" type="number" class="form-control" placeholder="" required #pieceQty="ngModel"
                       [class.is-invalid]="pieceQty.invalid && pieceQty.touched">
 
               <small class="text-danger" *ngIf="pieceQty.invalid && pieceQty.touched">Piece Quantity is required </small>
@@ -211,9 +211,10 @@
 
             <div class="addBtn">
               <a data-toggle="tooltip" title="Add" (click)="addItems()">
+
                 <i class="icofont icofont-ui-add text-c-green f-16"></i></a>
             </div>
-            &nbsp; &nbsp;
+
 
             <div class="addBtn">
               <a data-toggle="tooltip" title="Remove" (click)="deleteItems(i)">
@@ -229,13 +230,12 @@
 
             <div class="col-sm-2">
               <label>Total Piece</label>
-              <input  [(ngModel)] = "items[i].totalPiece" name="totalPiece{{i}}" value="{{totalInventory(items[i].cartonQty, items[i].dznQty, items[i].pieceQty, i)}}"
-                      min="1" type="number" class="form-control" placeholder="" readonly>
+              <input  [(ngModel)] = "items[i].totalPiece" name="totalPiece{{i}}" min="0" type="number" class="form-control" placeholder="" readonly>
             </div>
 
             <div class="col-sm-3">
               <label>Currency</label>
-              <select [(ngModel)] = "items[i].currency" name="currency{{i}}" class="form-control" (change)="currencyValue($event)">
+              <select [(ngModel)] = "items[i].currency" name="currency{{i}}" class="form-control" (change)="currencyValue(i)">
                 <option *ngFor="let currency of currencies" value="{{currency.currencyName}}" >{{currency.currencyName}}</option>
               </select>
             </div>
@@ -243,8 +243,8 @@
 
             <div class="col-sm-3">
               <label>Currency Rate</label>
-              <input  [(ngModel)] = "items[i].currencyRate" name="currencyRate{{i}}" (change)="rateValue($event)"
-                      min="1" type="number" class="form-control" placeholder="" required #currencyRate="ngModel"
+              <input  [(ngModel)] = "items[i].currencyRate" name="currencyRate{{i}}" (change)="currencyValue(i)"
+                      min="0" type="number" class="form-control" placeholder="" required #currencyRate="ngModel"
                       [class.is-invalid]="currencyRate.invalid && currencyRate.touched">
 
               <small class="text-danger" *ngIf="currencyRate.invalid && currencyRate.touched">Carton Quantity is required </small>
@@ -252,8 +252,7 @@
 
             <div class="col-sm-3">
               <label>Selling Price</label>
-              <input [(ngModel)] = "items[i].sellingPrice" name="sellingPrice{{i}}" value="{{sell(items[i].currencyRate, i)}}"
-                     min="1" type="number" class="form-control" placeholder="Rs" readonly>
+              <input [(ngModel)] = "items[i].sellingPrice" name="sellingPrice{{i}}" min="0" type="number" class="form-control" placeholder="Rs" readonly>
             </div>
 
 
@@ -272,13 +271,11 @@
 
     <!--=====================================================================================-->
 
-<!--THis is Update Function-->
+    <!--THis is Update Function-->
 
     <div id="doubleRow" *ngIf="inventory._id !== undefined">
 
-      <div class="row" *ngFor="let item of inventory.items">
-        <div *ngFor="let item of items; let i = index">
-
+      <div *ngFor="let item of inventory.items; let i = index">
 
           <div class="row smallFont">
             <div class="col-sm-6 mobile-inputs">
@@ -287,53 +284,53 @@
 
                 <div class="col-sm-3">
                   <label>Item Name</label>
-                  <input  [(ngModel)] = "items[i].itemName" name="itemName{{i}}"
+                  <input  [(ngModel)] = "item.itemName" name="item.itemName-{{i}}"
                           type="text" class="form-control" placeholder="">
                 </div>
 
                 <div class="col-sm-3">
                   <label>Carton Type</label>
-                  <select [(ngModel)] = "items[i].cartonType" name="cartonType{{i}}" class="form-control">
+                  <select [(ngModel)] = "item.cartonType" name="item.cartonType-{{i}}" class="form-control">
                     <option *ngFor="let unit of units" value="{{unit.unitName}}">{{unit.unitName}}</option>
                   </select>
                 </div>
 
                 <div class="col-sm-2">
                   <label>Carton Qty</label>
-                  <input  [(ngModel)] = "items[i].cartonQty"  name="cartonQty{{i}}" (change)="cartonValue($event)"
-                          min="1" type="number"  class="form-control" placeholder="">
+                  <input  [(ngModel)] = "item.cartonQty"  name="item.cartonQty-{{i}}" (change)="addTotal()"
+                          min="0" type="number"  class="form-control" placeholder="">
                 </div>
 
                 <div class="col-sm-2">
                   <label>Dozen Qty</label>
-                  <input  [(ngModel)] = "items[i].dznQty" name="dznQty{{i}}" (change)="dznValue($event)"
-                          min="1" type="number" class="form-control" placeholder="">
+                  <input  [(ngModel)] = "item.dznQty" name="item.dznQty-{{i}}" (change)="addTotal()"
+                          min="0" type="number" class="form-control" placeholder="">
                 </div>
 
 
                 <div class="col-sm-2">
                   <label>Piece Qty</label>
-                  <input  [(ngModel)] = "items[i].pieceQty" name="pieceQty{{i}}" (change)="pieceValue($event)"
-                          min="1" type="number" class="form-control" placeholder="">
+                  <input  [(ngModel)] = "item.pieceQty" name="item.pieceQty-{{i}}" (change)="addTotal()"
+                          min="0" type="number" class="form-control" placeholder="">
                 </div>
 
 
                 <div class="col-sm-5">
                   <i class="ti-calendar"></i><span>&nbsp;&nbsp;&nbsp;</span><label>Expire Date</label>
-                  <input  [(ngModel)] = "items[i].expireDate" name="expireDate{{i}}"  class="form-control" type="date" >
+                  <input  [(ngModel)] = "item.expireDate" name="item.expireDate-{{i}}"  class="form-control" type="date" >
                   <!--<small class="text-danger">{{errorMsg.inventoryDate}}</small>-->
 
                 </div>
 
 
                 <div class="addBtn">
-                  <a data-toggle="tooltip" title="Add" (click)="addItems()">
+                  <a data-toggle="tooltip" title="Add" (click)="putItems()">
                     <i class="icofont icofont-ui-add text-c-green f-16"></i></a>
                 </div>
                 &nbsp; &nbsp;
 
                 <div class="addBtn">
-                  <a data-toggle="tooltip" title="Remove" (click)="deleteItems(i)">
+                  <a data-toggle="tooltip" title="Remove" (click)="removeItems(i)">
                     <i class="icofont icofont-ui-delete text-c-pink f-16 customBtn"></i></a>
                 </div>
 
@@ -347,13 +344,12 @@
 
                 <div class="col-sm-2">
                   <label>Total Piece</label>
-                  <input  [(ngModel)] = "items[i].totalPiece" name="totalPiece{{i}}" value="{{totalInventory(items[i].cartonQty, items[i].dznQty, items[i].pieceQty,i)}}"
-                          min="1" type="number" class="form-control" placeholder="" readonly>
+                  <input  [(ngModel)] = "item.totalPiece" name="item.totalPiece-{{i}}" min="0" type="number" class="form-control" placeholder="" readonly>
                 </div>
 
                 <div class="col-sm-3">
                   <label>Currency</label>
-                  <select [(ngModel)] = "items[i].currency" name="currency{{i}}" class="form-control" (change)="currencyValue($event)">
+                  <select [(ngModel)] = "item.currency" name="item.currency-{{i}}" class="form-control" >
                     <option *ngFor="let currency of currencies" value="{{currency.currencyName}}" >{{currency.currencyName}}</option>
                   </select>
                 </div>
@@ -361,14 +357,14 @@
 
                 <div class="col-sm-3">
                   <label>Currency Rate</label>
-                  <input  [(ngModel)] = "items[i].currencyRate" name="currencyRate{{i}}" (change)="rateValue($event)"
-                          min="1" type="number" class="form-control" placeholder="">
+                  <input  [(ngModel)] = "item.currencyRate" name="item.currencyRate-{{i}}" (change)="calculatePrice()"
+                          min="0" type="number" class="form-control" placeholder="">
                 </div>
 
                 <div class="col-sm-3">
                   <label>Selling Price</label>
-                  <input [(ngModel)] = "items[i].sellingPrice" name="sellingPrice{{i}}" value="{{sell(items[i].currencyRate, i)}}"
-                         min="1" type="number" class="form-control" placeholder="Rs" readonly>
+                  <input [(ngModel)] = "item.sellingPrice" name="item.sellingPrice-{{i}}"
+                         min="0" type="number" class="form-control" placeholder="Rs" readonly>
                 </div>
 
 
@@ -377,14 +373,12 @@
           </div>
 
         </div>
-      </div>
+
     </div>
 
     <!--This Update Funtion is End-->
 
     <!--=====================================================================================-->
-
-
 
 
     <!--Row 5 Start-->
@@ -396,20 +390,20 @@
 
           <div class="col-sm-4">
             <label>Total Carton</label>
-            <input [(ngModel)] = "inventory.totalCarton" name="totalCarton" value="{{totalCartonQty}}"
-                   min="1" type="number" class="form-control" placeholder="" readonly>
+            <input [(ngModel)] = "inventory.totalCarton" name="totalCarton"
+                   min="0" type="number" class="form-control" placeholder="" readonly>
           </div>
 
           <div class="col-sm-4">
             <label>Total Dozen</label>
-            <input [(ngModel)] = "inventory.totalDzn" name="totalDzn" value="{{totalDznQty}}"
-                   min="1" type="number" class="form-control" placeholder="" readonly>
+            <input [(ngModel)] = "inventory.totalDzn" name="totalDzn"
+                   min="0" type="number" class="form-control" placeholder="" readonly>
           </div>
 
           <div class="col-sm-4">
             <label>Total Pieces</label>
-            <input  [(ngModel)] = "inventory.totalPieces" name="totalPieces" value="{{totalPiecesQty}}"
-                    min="1" type="number" class="form-control" placeholder="" readonly>
+            <input  [(ngModel)] = "inventory.totalPieces" name="totalPieces"
+                    min="0" type="number" class="form-control" placeholder="" readonly>
           </div>
 
         </div>
@@ -427,8 +421,8 @@
 
           <div class="col-sm-4">
             <label>Total Price Rs</label>
-            <input  [(ngModel)] = "inventory.totalPriceRs" name="totalPriceRs" value="{{grandTotal}}"
-                    min="1" type="number" class="form-control" placeholder="" readonly>
+            <input  [(ngModel)] = "inventory.totalPriceRs" name="totalPriceRs"
+                    min="0" type="number" class="form-control" placeholder="" readonly>
           </div>
 
         </div>

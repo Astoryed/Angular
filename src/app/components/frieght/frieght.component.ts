@@ -105,7 +105,7 @@ export class FrieghtComponent implements OnInit {
         this.frieghtService.showLog(frieght.container);
 
         this.frieghtService.setter(frieght);
-        this._router.navigate(['/container']);
+        this._router.navigate(['/viewContainer']);
 
     }
 

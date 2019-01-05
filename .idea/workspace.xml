@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="4e2584d3-2353-4550-ba34-a67688a0682f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/frieght/fright.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/fright.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -20,52 +28,43 @@
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
     <expand />
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create-inventory.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2484">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create-frieght.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="200" column="85" lean-forward="true" selection-start-line="200" selection-start-column="85" selection-end-line="200" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create-frieght.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="64" column="54" lean-forward="true" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
-              <folding>
-                <element signature="e#0#66#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="create-inventory.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="983">
-              <caret line="192" column="52" lean-forward="true" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
+            <state relative-caret-position="82">
+              <caret line="458" column="46" selection-start-line="458" selection-start-column="46" selection-end-line="458" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="inventory.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-inventory.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1767">
+              <caret line="132" column="84" selection-start-line="132" selection-start-column="84" selection-end-line="132" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -74,7 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Mega</find>
       <find>app-ti</find>
       <find />
       <find>John</find>
@@ -102,6 +100,9 @@
       <find>name</find>
       <find>Address</find>
       <find>address</find>
+      <find>cartonQty</find>
+      <find>grand</find>
+      <find>secondElement</find>
     </findStrings>
     <replaceStrings>
       <replace>frieght</replace>
@@ -121,10 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/supplier/supplier.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/booker/create-booker/create-booker.component.css" />
-        <option value="$PROJECT_DIR$/src/app/services/booker.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/booker/create-booker/create-booker.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/booker/booker.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/batch/batch.component.html" />
         <option value="$PROJECT_DIR$/src/app/services/supplier.service.ts" />
@@ -146,32 +143,36 @@
         <option value="$PROJECT_DIR$/routes/api/booker.js" />
         <option value="$PROJECT_DIR$/src/app/filter.pipe.ts" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.css" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css" />
         <option value="$PROJECT_DIR$/src/app/services/inventory.service.ts" />
         <option value="$PROJECT_DIR$/src/app/pages/widget/widget.module.ts" />
         <option value="$PROJECT_DIR$/src/app/pages/task/task.module.ts" />
         <option value="$PROJECT_DIR$/src/app/pages/map/map.module.ts" />
-        <option value="$PROJECT_DIR$/routes/api/inventory.js" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" />
         <option value="$PROJECT_DIR$/src/app/components/product/create-product/create-product.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/model.ts" />
         <option value="$PROJECT_DIR$/src/app/layout/admin/admin.component.html" />
-        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-container/container.html" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-container/container.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" />
         <option value="$PROJECT_DIR$/models/Inventory.js" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.html" />
+        <option value="$PROJECT_DIR$/routes/api/inventory.js" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/fright.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/frieght/view-frieght/view-frieght.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/frieght/view-frieght/view-frieght.component.html" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css" />
+        <option value="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" />
       </list>
     </option>
   </component>
@@ -196,9 +197,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-16" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -222,7 +224,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,23 +255,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="frieght" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="frieght" type="462c0819:PsiDirectoryNode" />
-              <item name="create-frieght" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -282,10 +266,28 @@
               <item name="inventory" type="462c0819:PsiDirectoryNode" />
               <item name="create-inventory" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+              <item name="view-user" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -485,11 +487,21 @@
       <workItem from="1546490657206" duration="12886000" />
       <workItem from="1546503716400" duration="1337000" />
       <workItem from="1546506756553" duration="13082000" />
+      <workItem from="1546520551979" duration="170000" />
+      <workItem from="1546521608137" duration="941000" />
+      <workItem from="1546576928853" duration="536000" />
+      <workItem from="1546577488544" duration="135000" />
+      <workItem from="1546577692312" duration="91000" />
+      <workItem from="1546577935475" duration="238000" />
+      <workItem from="1546578197421" duration="360000" />
+      <workItem from="1546578580081" duration="364000" />
+      <workItem from="1546578963324" duration="27616000" />
+      <workItem from="1546663573811" duration="22369000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="896155000" />
+    <option name="totallyTimeSpent" value="948975000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,11 +520,11 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3778878" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.46864685" />
       <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32838285" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16490166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18910742" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -524,16 +536,48 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32838285" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.46864685" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="npm" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18910742" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -551,19 +595,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/Booker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/booker.service.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/components/booker/create-booker/create-booker.component.html" />
-    <entry file="file://$PROJECT_DIR$/routes/api/product.js" />
-    <entry file="file://$PROJECT_DIR$/src/app/services/product.service.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/components/category/create-category/create-category.component.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/filter.pipe.ts" />
     <entry file="file://$PROJECT_DIR$/validation/inventory.js" />
     <entry file="file://$PROJECT_DIR$/src/app/services/frieght.service.spec.ts" />
     <entry file="file://$PROJECT_DIR$/src/app/services/inventory.service.ts" />
@@ -624,21 +655,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="28" selection-end-line="49" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.spec.ts" />
-    <entry file="file://$PROJECT_DIR$/routes/api/inventory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="92" column="32" lean-forward="true" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/Frieght.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
@@ -646,61 +663,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/Inventory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="74" column="10" lean-forward="true" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/container.ts" />
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/container.html" />
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="108" column="28" lean-forward="true" selection-start-line="108" selection-start-column="28" selection-end-line="108" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="110" selection-start-line="110" selection-end-line="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/product/product.ts">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/fright.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -709,58 +681,165 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="1440">
           <caret line="85" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api/inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="74" column="10" lean-forward="true" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="101" column="29" lean-forward="true" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/users/view-user/view-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/users/view-user/view-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="e#0#88#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/fright.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="51" column="19" lean-forward="true" selection-start-line="51" selection-start-column="19" selection-end-line="51" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/view-frieght/view-frieght.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="13" lean-forward="true" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
-          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/view-frieght/view-frieght.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2484">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="200" column="85" lean-forward="true" selection-start-line="200" selection-start-column="85" selection-end-line="200" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="64" column="54" lean-forward="true" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
+        <state relative-caret-position="270">
+          <caret line="15" column="11" selection-start-line="13" selection-end-line="22" selection-end-column="1" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="49" column="53" lean-forward="true" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1767">
+          <caret line="132" column="84" selection-start-line="132" selection-start-column="84" selection-end-line="132" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="192" column="52" lean-forward="true" selection-start-line="192" selection-start-column="52" selection-end-line="192" selection-end-column="52" />
+        <state relative-caret-position="82">
+          <caret line="458" column="46" selection-start-line="458" selection-start-column="46" selection-end-line="458" selection-end-column="46" />
         </state>
       </provider>
     </entry>

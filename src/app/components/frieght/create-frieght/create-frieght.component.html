@@ -17,7 +17,7 @@
     <!--Row 1 Start-->
 
     <div class="row">
-      <div class="col-sm-6 mobile-inputs">
+      <div class="col-lg-6 col-xl-6 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -56,7 +56,7 @@
 
       </div>
 
-      <div class="col-sm-6 mobile-inputs">
+      <div class="col-lg-6 col-xl-6 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -94,84 +94,29 @@
 
       </div>
     </div>
-
-    <!----=====================Loop Fields========================================-->
-
-    <!--<div *ngIf="frieght._id !== undefined">-->
-      <!--<div class="row" *ngFor="let con of frieght.container; let i = index">-->
-        <!--<div class="col-sm-6">-->
-
-          <!--<div class="form-group row">-->
-
-            <!--<div class="col-sm-4">-->
-              <!--<label>Container No</label>-->
-              <!--<input [(ngModel)] = "con.containerNumber" name="container[i].containerNumber" type="text" class="form-control" placeholder=""-->
-                     <!--required #containerNumber="ngModel" [class.is-invalid]="containerNumber.invalid && containerNumber.touched" >-->
-
-              <!--<small class="text-danger" *ngIf="containerNumber.invalid && containerNumber.touched">Container Number is required </small>-->
-
-            <!--</div>-->
-
-            <!--<div class="col-sm-4">-->
-              <!--<label>Container Price</label>-->
-              <!--<input [(ngModel)] = "con.price" name="container[i].price" (change)="valueOne($event) " type="number" class="form-control" placeholder=""-->
-                     <!--required #price="ngModel" [class.is-invalid]="price.invalid && price.touched" >-->
-
-              <!--<small class="text-danger" *ngIf="price.invalid && price.touched">Price is required</small>-->
-            <!--</div>-->
-
-            <!--<div class="col-sm-4">-->
-              <!--<label>Size</label>-->
-              <!--<input [(ngModel)] = "con.size" name="container[i].size" type="text" class="form-control" placeholder=""-->
-                     <!--required #size="ngModel" [class.is-invalid]="size.invalid && size.touched" >-->
-
-              <!--<small class="text-danger" *ngIf="size.invalid && size.touched">Size is required </small>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="col-sm-6 ">-->
-
-          <!--<div class="col-sm-4 Btn">-->
-
-            <!--<a data-toggle="tooltip" title="Add" (click)="addContainer()">-->
-              <!--<i class="icofont icofont-ui-add text-c-green"></i></a>-->
-            <!--<span>&nbsp;&nbsp;&nbsp;</span>-->
-
-            <!--&lt;!&ndash;<span *ngIf="container[1]">&ndash;&gt;-->
-            <!--<a data-toggle="tooltip" title="Remove" (click)="deleteContainer(i)">-->
-              <!--<i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>-->
-            <!--&lt;!&ndash;</span>&ndash;&gt;-->
-
-          <!--</div>-->
-
-        <!--</div>-->
-
-      <!--</div>-->
-    <!--</div>-->
-
-
-    <!----===========================Loop Fields==================================-->
+    <!--======================Create Containers===================================-->
 
     <div *ngIf="frieght._id == undefined">
 
       <div class="row" *ngFor="let con of container; let i = index">
-        <div class="col-sm-6 mobile-inputs">
+        <div class="col-lg-6 col-xl-6 col-sm-6 mobile-inputs">
 
           <div class="form-group row">
 
             <div class="col-sm-4">
               <label>Container No</label>
               <input [(ngModel)] = "container[i].containerNumber" name="containerNumber{{i}}"  type="text" class="form-control"
-                     placeholder="">
-              <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
+                     placeholder="" required #containerNumber="ngModel"
+                     [class.is-invalid]="containerNumber.invalid && containerNumber.touched">
 
+              <small class="text-danger" *ngIf="containerNumber.invalid && containerNumber.touched">Container Number is required </small>
+              <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
 
             </div>
 
             <div class="col-sm-4">
               <label>Container Price</label>
-              <input [(ngModel)] = "container[i].price" name="price{{i}}" (change)="valueOne($event) " type="text"   class="form-control" placeholder="">
+              <input [(ngModel)] = "container[i].price" name="price{{i}}" (change)="addFieldValues()" type="number" class="form-control" placeholder="">
               <!--<small class="text-danger">{{errorMsg.price}}</small>-->
 
             </div>
@@ -193,7 +138,7 @@
 
             <div class="col-sm-4 Btn">
 
-              <a data-toggle="tooltip" title="Add" (click)="addContainer(container[i].containerNumber, container[i].price, container[i].size)">
+              <a data-toggle="tooltip" title="Add" (click)="addContainer()">
                 <i class="icofont icofont-ui-add text-c-green"></i></a>
 
               <!--<span *ngIf="container[1]">-->
@@ -210,12 +155,66 @@
       </div>
     </div>
 
+    <!--======================Update Containers===================================-->
+
+    <div *ngIf="frieght._id !== undefined">
+      <div class="row" *ngFor="let con of frieght.container; let i = index">
+        <div class="col-lg-6 col-xl-6 col-sm-6">
+
+          <div class="form-group row">
+
+            <div class="col-sm-4">
+              <label>Container No</label>
+              <input [(ngModel)] = "con.containerNumber" name="con.containerNumber-{{i}}" type="text" class="form-control" placeholder=""
+                     required #containerNumber="ngModel" [class.is-invalid]="containerNumber.invalid && containerNumber.touched" >
+
+              <small class="text-danger" *ngIf="containerNumber.invalid && containerNumber.touched">Container Number is required </small>
+
+            </div>
+
+            <div class="col-sm-4">
+              <label>Container Price</label>
+              <input [(ngModel)] = "con.price" name="con.price-{{i}}" (change)="addFieldValues()" type="number" class="form-control" placeholder=""
+                     required #price="ngModel" [class.is-invalid]="price.invalid && price.touched" >
+
+              <small class="text-danger" *ngIf="price.invalid && price.touched">Price is required</small>
+            </div>
+
+            <div class="col-sm-4">
+              <label>Size</label>
+              <input [(ngModel)] = "con.size" name="con.size-{{i}}" type="text" class="form-control" placeholder=""
+                     required #size="ngModel" [class.is-invalid]="size.invalid && size.touched" >
+
+              <small class="text-danger" *ngIf="size.invalid && size.touched">Size is required </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-xl-6 col-sm-6 mobile-inputs">
+
+          <div class="form-group row">
+
+            <div class="col-sm-4 Btn">
+
+              <a data-toggle="tooltip" title="Add" (click)="putContainer()">
+                <i class="icofont icofont-ui-add text-c-green"></i></a>
+
+              <!--<span *ngIf="container[1]">-->
+              <a data-toggle="tooltip" title="Remove" (click)="removeContainer(i)">
+                <i class="icofont icofont-ui-delete text-c-pink f-16 m-l-10"></i></a>
+              <!--</span>-->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
 
 
     <!--=============================================================================-->
-
-    <!--Row 3 Start-->
-
 
     <div class="row">
       <div class="col-sm-8 mobile-inputs">
@@ -224,12 +223,12 @@
 
           <div class="col-sm-4">
             <label>Total Container Price</label>
-            <input [(ngModel)] = "frieght.containerPrice" name="containerPrice" value="{{totalCon}}"  type="text" class="form-control" placeholder="" readonly>
+            <input [(ngModel)] = "frieght.containerPrice" name="containerPrice" type="number" class="form-control" placeholder="" readonly>
           </div>
 
           <div class="col-sm-4">
             <label>Expense Price</label>
-            <input [(ngModel)] = "frieght.expensePrice" name="expensePrice" (change)="valueTwo($event) " type="text" class="form-control" placeholder=""
+            <input [(ngModel)] = "frieght.expensePrice" name="expensePrice" (change)="addFieldValues()" type="number" class="form-control" placeholder=""
                    required #expensePrice="ngModel" [class.is-invalid]="expensePrice.invalid && expensePrice.touched">
 
             <small class="text-danger" *ngIf="expensePrice.invalid && expensePrice.touched">Expense Price is required </small>
@@ -238,8 +237,7 @@
           </div>
           <div class="col-sm-4">
             <label>Total Price</label>
-            <input [(ngModel)] = "frieght.totalPrice" name="totalPrice" type="text" class="form-control"
-                   value="{{total}}" placeholder="" readonly>
+            <input [(ngModel)] = "frieght.totalPrice" name="totalPrice" type="number" class="form-control" placeholder="" readonly>
           </div>
         </div>
 
@@ -258,7 +256,7 @@
 
           <div class="col-sm-4">
             <label>Total Product Piece</label>
-            <input [(ngModel)] = "frieght.totalProductPiece" name="totalProductPiece" (change)="totalPieceValue($event)" type="text" class="form-control" placeholder=""
+            <input [(ngModel)] = "frieght.totalProductPiece" name="totalProductPiece" type="number" class="form-control" placeholder="" (change)="addFieldValues()"
                    required #totalProductPiece="ngModel" [class.is-invalid]="totalProductPiece.invalid && totalProductPiece.touched">
 
             <small class="text-danger" *ngIf="totalProductPiece.invalid && totalProductPiece.touched">Total Product Price is required </small>
@@ -269,7 +267,7 @@
 
           <div class="col-sm-4">
             <label>Average Price</label>
-            <input [(ngModel)] = "frieght.avgPrice" name="avgPrice" value="{{totalAvg}}" type="number" class="form-control" placeholder=""  readonly>
+            <input [(ngModel)] = "frieght.avgPrice" name="avgPrice" type="number" class="form-control" placeholder=""  readonly>
           </div>
 
           <div class="col-sm-6">
@@ -285,12 +283,15 @@
     </div>
 
 
-
-
-
     <button [disabled]="invoiceForm.invalid" type="submit" class="btn btn-primary">Submit</button>
 
 
   </app-card>
 
 </form>
+
+
+
+
+
+

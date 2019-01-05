@@ -29,6 +29,8 @@ import {SupplierComponent} from './components/supplier/supplier.component';
 import {CreateSupplierComponent} from './components/supplier/create-supplier/create-supplier.component';
 import {CreateBookerComponent} from './components/booker/create-booker/create-booker.component';
 import {CreateContainerComponent} from './components/frieght/create-container/create-container.component';
+import {ViewFrieghtComponent} from './components/frieght/view-frieght/view-frieght.component';
+import {ViewInventoryComponent} from './components/inventory/view-inventory/view-inventory.component';
 
 export const AppRoutes: Routes = [
 
@@ -46,6 +48,14 @@ export const AppRoutes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
+        {
+            path: 'viewInventory',
+            component: ViewInventoryComponent,
+        },
+        {
+            path: 'viewContainer',
+            component: ViewFrieghtComponent,
+        },
         {
             path: 'container',
             component: CreateContainerComponent,

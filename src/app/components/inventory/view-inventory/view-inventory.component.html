@@ -1,0 +1,186 @@
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'View Inventory'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tbody>
+        <tr>
+          <th>Inventory Number</th>
+          <td>{{inventory.inventoryNumber}}</td>
+        </tr>
+        <tr>
+          <th>Container Number</th>
+          <td>{{inventory.containerNumber}}</td>
+        </tr>
+        <tr>
+          <th>Batch Number</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.batchNumber}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Inventory Date</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.inventoryDate | date:'shortDate'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Product Code</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.productCode}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Bar Code</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.barCode}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Average Price</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.avgPrice}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Item name</th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.itemName }}
+              </li>
+
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Carton Type</th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.cartonType }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Carton Qty </th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.cartonQty }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Dozen Qty </th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.dznQty }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Piece Qty </th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.pieceQty }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Total Piece</th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.totalPiece }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Selling Price</th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of inventory.items">
+                {{ con.sellingPrice }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Total Carton</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.totalCarton}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Total Dozen</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.totalDzn}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Total Piece</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.totalPieces}}</p>
+          </td>
+        </tr>
+
+
+        <tr>
+          <th>Total Price</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.totalPriceRs}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Notes</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{inventory.notes}}</p>
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <th>Created</th>
+          <td>
+            <p class="f-w-600"><i class="icofont icofont-data"></i> {{inventory.created | date:'shortDate'}}</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </app-card>
+
+</div>
+
+
+
+

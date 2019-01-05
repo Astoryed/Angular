@@ -1,0 +1,138 @@
+<!-- Recent candidate start -->
+<div class="col-md-6 col-xl-12">
+  <app-card [title]="'Frieght Invoice'" [cardClass]="'recent-candidate-card'" [blockClass]="'p-t-0 p-b-0'">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <tbody>
+        <tr>
+          <th>Invoice Number</th>
+          <td>{{frieght.invoiceNumber}}</td>
+        </tr>
+        <tr>
+          <th>Client</th>
+          <td>{{frieght.client}}</td>
+        </tr>
+        <tr>
+          <th>Final Destionation</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.finalDestination}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>BL Number</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.blNumber}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>MBL Number</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.mblNumber}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Invoice Date</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.invoiceDate | date:'shortDate'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Total Product Piece</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.totalProductPiece}}</p>
+          </td>
+        </tr>
+        <tr>
+          <th>Container Numbers</th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of frieght.container">
+                {{ con.containerNumber }}
+              </li>
+
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Container Prices </th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of frieght.container">
+                {{ con.price }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Container Sizes </th>
+          <td>
+            <i class="icofont text-c-black f-16"></i>
+            <ul class="m-l-10 d-inline-block f-w-600">
+              <li *ngFor="let con of frieght.container">
+                {{ con.size }}
+              </li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Container Price</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.containerPrice}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Expense Price</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.expensePrice}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Total Price</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.totalPrice}}</p>
+          </td>
+        </tr>
+
+
+        <tr>
+          <th>Average Price</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.avgPrice}}</p>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Notes</th>
+          <td>
+            <p class="m-l-10 d-inline-block f-w-600">{{frieght.notes}}</p>
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <th>Created</th>
+          <td>
+            <p class="f-w-600"><i class="icofont icofont-data"></i> {{frieght.created | date:'shortDate'}}</p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </app-card>
+
+</div>
+
+
+
+

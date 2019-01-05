@@ -63,6 +63,8 @@ import {CreateSupplierComponent } from './components/supplier/create-supplier/cr
 import {SupplierService} from './services/supplier.service';
 import { FilterPipe } from './filter.pipe';
 import { CreateContainerComponent } from './components/frieght/create-container/create-container.component';
+import { ViewFrieghtComponent } from './components/frieght/view-frieght/view-frieght.component';
+import { ViewInventoryComponent } from './components/inventory/view-inventory/view-inventory.component';
 
 @NgModule({
     declarations: [
@@ -98,6 +100,8 @@ import { CreateContainerComponent } from './components/frieght/create-container/
         CreateSupplierComponent,
         FilterPipe,
         CreateContainerComponent,
+        ViewFrieghtComponent,
+        ViewInventoryComponent,
 
     ],
     imports: [

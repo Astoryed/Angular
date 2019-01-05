@@ -8,6 +8,7 @@ import {Currency} from '../../currency/currency';
 import {Product} from '../../product/product';
 import {Unit} from '../../units/units';
 import { FormGroup, FormControl } from '@angular/forms';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
     selector: 'app-create-inventory',
@@ -16,62 +17,52 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class CreateInventoryComponent implements OnInit {
 
-  public items;
-  public itemName;
-  public cartonType;
-  public cartonQty = null;
-  public dznQty = null;
-  public pieceQty = null;
-  public totalPiece;
-  public currency;
-  public currencyRate;
-  public sellingPrice;
-  public expireDate;
-
-
-
   public inventory:Inventory;
   public frieghtes: Frieght[];
   public currencies: Currency[];
   public products: Product[];
   public units: Unit[];
 
-  public one = 0;
-  public rate;
 
-  public conversion;
-  public currencyRateResult = null;
-
-  public carton = 0;
-  public dzn = 0;
-  public piece = 0;
-
-  public totalPieceResult;
-  public totalCartonQty = 0;
-  public totalDznQty = 0;
-  public totalPiecesQty = 0;
-  public grandTotal = 0;
-
-  public con;
-  public averageValue;
+    public items;
+    public itemName;
+    public cartonType;
+    public cartonQty;
+    public dznQty;
+    public pieceQty;
+    public totalPiece;
+    public currency;
+    public currencyRate;
+    public sellingPrice;
+    public expireDate;
 
 
-  bar;
-  findBarCode;
+    public one = 0;
+    public rate;
 
-  code;
-  findProductCode;
-  removed;
-  delCartonQty;
-  delDznQty;
-  delPieceQty;
-  delSellingPrice;
-  delTotalPiece;
+    public totalCartonQty;
+    public totalDznQty;
+    public totalPiecesQty;
+    public grandTotal;
 
-  public d;
-  public c;
+    public con;
+    public random;
 
-  random;
+    public bar;
+    public findBarCode;
+
+    public code;
+    public findProductCode;
+    public findAverage;
+    public removed;
+    public removedValue;
+    public delCartonQty;
+    public delDznQty;
+    public delPieceQty;
+    public delSellingPrice;
+    public delTotalPiece;
+
+
 
   errorMsg = {containerNumber:'', batchNumber:'', status:'', inventoryDate:'', productCode:'', barCodeName: '',
   avgPrice: '', notes: ''};
@@ -84,11 +75,6 @@ export class CreateInventoryComponent implements OnInit {
   ngOnInit() {
       this.inventory = this.inventoryService.getter();
 
-      console.log('When get Inventory id', this.inventory)
-
-
-      console.log('From Main Controller', this.inventoryService.fItems())
-
       this.readFrieght();
 
       this.readCurrency();
@@ -97,95 +83,126 @@ export class CreateInventoryComponent implements OnInit {
 
       this.readUnit();
 
-      // this.items  = [ {itemName: '', cartonType: '', cartonQty: '', dznQty: '', pieceQty: '',
-      //   totalPiece: '', currency: '', currencyRate: '', sellingPrice: ''}];
       this.items = [];
 
       this.randomNumber();
-
-
-
   }
-
-
-// For inventory total Prices
-    totalInventory(a, b, c, index){
-        let d = 0;
-
-        d = a + b + c;
-
-        this.items[index].totalPiece = d;
-
-        this.d = this.totalPiece
-
-        console.log('Items', this.items[index].totalPiece + ' VALUE -->' + d)
-        // return d
-    }
-
-    sell(a, index){
-        let c = 0;
-        c = (a * this.rate)  +  (this.averageValue*1);
-
-        this.items[index].sellingPrice = c;
-
-        this.c = this.sellingPrice
-        this.grandTotals();
-
-        // return c
-
-    }
-
 
 
   // For Adding Multiple Rows in the Inventory Form
   //=================================================================
 
   addItems() {
-      this.items.push({
-          itemName: this.itemName,
-          cartonType: this.cartonType,
-          cartonQty: this.cartonQty,
-          dznQty: this.dznQty,
-          pieceQty: this.pieceQty,
-          totalPiece:this.totalPiece  ,
-          currency: this.currency,
-          currencyRate: this.currencyRate,
-          sellingPrice:  this.sellingPrice,
-          expireDate: this.expireDate,
-      });
-      this.itemName =  '';
-      this.cartonType = '';
-      this.cartonQty = '';
-      this.dznQty = '';
-      this.pieceQty = '';
-      this.totalPiece = '';
-      this.currency = '';
-      this.currencyRate = '';
-      this.sellingPrice = '';
-      this.expireDate ='';
-      console.log(this.items);
+          this.items.push({
+              itemName: this.itemName,
+              cartonType: this.cartonType,
+              cartonQty: this.cartonQty,
+              dznQty: this.dznQty,
+              pieceQty: this.pieceQty,
+              totalPiece:this.totalPiece  ,
+              currency: this.currency,
+              currencyRate: this.currencyRate,
+              sellingPrice:  this.sellingPrice,
+              expireDate: this.expireDate,
+          });
+          this.itemName =  '';
+          this.cartonType = '';
+          this.cartonQty = '';
+          this.dznQty = '';
+          this.pieceQty = '';
+          this.totalPiece = '';
+          this.currency = '';
+          this.currencyRate = '';
+          this.sellingPrice = '';
+          this.expireDate ='';
+          console.log(this.items);
+
   }
+
+   putItems() {
+        this.inventory.items.push({
+            itemName: this.itemName,
+            cartonType: this.cartonType,
+            cartonQty: this.cartonQty,
+            dznQty: this.dznQty,
+            pieceQty: this.pieceQty,
+            totalPiece:this.totalPiece  ,
+            currency: this.currency,
+            currencyRate: this.currencyRate,
+            sellingPrice:  this.sellingPrice,
+            expireDate: this.expireDate,
+        });
+        this.itemName =  '';
+        this.cartonType = '';
+        this.cartonQty = '';
+        this.dznQty = '';
+        this.pieceQty = '';
+        this.totalPiece = '';
+        this.currency = '';
+        this.currencyRate = '';
+        this.sellingPrice = '';
+        this.expireDate ='';
+        console.log(this.items);
+
+    }
+
+
+    removeItems(index) {
+        this.removedValue = this.inventory.items.splice(index, 1);
+
+        this.delCartonQty = this.removedValue[0].cartonQty;
+        this.delDznQty = this.removedValue[0].dznQty;
+        this.delPieceQty = this.removedValue[0].pieceQty;
+        this.delSellingPrice = this.removedValue[0].sellingPrice;
+        this.delTotalPiece = this.removedValue[0].totalPiece;
+
+        console.log('removed', this.delSellingPrice);
+
+        this.inventory.totalCarton = (this.inventory.totalCarton*1) - (this.delCartonQty*1);
+        this.inventory.totalDzn = (this.inventory.totalDzn*1) - (this.delDznQty*1);
+        this.inventory.totalPieces = (this.inventory.totalPieces*1) - (this.delPieceQty*1);
+        this.inventory.totalPriceRs = (this.inventory.totalPriceRs*1) - (this.delSellingPrice*1);
+
+    }
 
 
     //When search from productCode field
 
     addIteminto(){
-        if(this.findProductCode){
-            this.items.push({
-                itemName: this.findProductCode,
-                cartonType: this.cartonType,
-                cartonQty: this.cartonQty,
-                dznQty: this.dznQty,
-                pieceQty: this.pieceQty,
-                totalPiece: this.totalPiece,
-                currency: this.currency,
-                currencyRate: this.currencyRate,
-                sellingPrice: this.sellingPrice,
-                expireDate: this.expireDate,
-            });
-        }
-    }
 
+      if(this.inventory._id == undefined){
+          if(this.findProductCode){
+              this.items.push({
+                  itemName: this.findProductCode,
+                  cartonType: this.cartonType,
+                  cartonQty: this.cartonQty,
+                  dznQty: this.dznQty,
+                  pieceQty: this.pieceQty,
+                  totalPiece: this.totalPiece,
+                  currency: this.currency,
+                  currencyRate: this.currencyRate,
+                  sellingPrice: this.sellingPrice,
+                  expireDate: this.expireDate,
+              });
+          }
+      }else{
+          if(this.findProductCode){
+              this.inventory.items.push({
+                  itemName: this.findProductCode,
+                  cartonType: this.cartonType,
+                  cartonQty: this.cartonQty,
+                  dznQty: this.dznQty,
+                  pieceQty: this.pieceQty,
+                  totalPiece: this.totalPiece,
+                  currency: this.currency,
+                  currencyRate: this.currencyRate,
+                  sellingPrice: this.sellingPrice,
+                  expireDate: this.expireDate,
+              });
+          }
+      }
+
+    }
 
     deleteItems(index) {
       this.removed = this.items.splice(index, 1);
@@ -198,153 +215,150 @@ export class CreateInventoryComponent implements OnInit {
 
       console.log('removed', this.delSellingPrice);
 
-      this.totalCartonQty = (this.totalCartonQty*1) - (this.delCartonQty*1);
-      this.totalDznQty = (this.totalDznQty*1) - (this.delDznQty*1);
-      this.totalPiecesQty = (this.totalPiecesQty*1) - (this.delPieceQty*1);
-      // this.totalPieceResult = (this.totalPieceResult*1) - (this.delTotalPiece*1);
-
-
-      this.grandTotal = (this.grandTotal*1) - (this.delSellingPrice*1);
+      this.inventory.totalCarton = (this.inventory.totalCarton*1) - (this.delCartonQty*1);
+      this.inventory.totalDzn = (this.inventory.totalDzn*1) - (this.delDznQty*1);
+      this.inventory.totalPieces = (this.inventory.totalPieces*1) - (this.delPieceQty*1);
+      this.inventory.totalPriceRs = (this.inventory.totalPriceRs*1) - (this.delSellingPrice*1);
 
   }
-
-
-
-  // Add Total Piece of each Row
-  //=================================================================
-  cartonValue(e){
-    this.carton = e.target.value;
-    this.addFieldValues();
-    this.totalCarton();
-    // console.log(e)
-  }
-
-  dznValue(e){
-    this.dzn = e.target.value;
-    this.addFieldValues();
-      this.totalDzn();
-    // console.log(e)
-  }
-
-  pieceValue(e){
-    this.piece = e.target.value;
-    this.addFieldValues();
-    this.totalPieces();
-    // console.log(e)
-  }
-
-  addFieldValues() {
-    this.totalPieceResult = (this.carton*1) + (this.dzn*1) + (this.piece*1) ;
-
-
-  }
-
-    // Add Total Of All
-    //=================================================================
-
-  totalCarton() {
-    this.totalCartonQty = this.cartonQty;
-
-      for (let i = 0; i < this.items.length; i++) {
-          if (this.items[i].cartonQty) {
-             this.totalCartonQty = (this.totalCartonQty*1) + (this.items[i].cartonQty*1);
-          }
-      }
-
-  }
-
-  totalDzn() {
-    this.totalDznQty = this.dznQty;
-
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].dznQty) {
-        this.totalDznQty = (this.totalDznQty*1) + (this.items[i].dznQty*1);
-      }
-    }
-
-  }
-
-
-  totalPieces() {
-    this.totalPiecesQty = this.pieceQty;
-
-    for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].pieceQty) {
-        this.totalPiecesQty = (this.totalPiecesQty*1) + (this.items[i].pieceQty*1);
-      }
-    }
-
-  }
-
-
-    grandTotals(){
-        this.grandTotal = 0;
-
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].sellingPrice) {
-                this.grandTotal = (this.grandTotal*1) + (this.items[i].sellingPrice*1);
-            }
-        }
-    }
 
     //=================================================================
-    //Curreny Multiplied By the Rate and which is in the currency table
-    //=================================================================
-
-
-  currencyValue(e){
-    let one = e.target.value;
-
-    this.inventoryService.readCurrency()
-      .subscribe(
-        data => {
-          let sortedList = [];
-
-          let rawData = data['msg'];
-          rawData.forEach((currency) => {
-
-            if (currency.currencyName == one) {
-              sortedList.push(currency.currencyRate)
-            }
-
-          });
-
-          // console.log(rawData);
-
-          this.rate = sortedList;
-
-        },
-
-        err =>{
-          console.log(err);
-        })
-  }
-
-  rateValue(e){
-    this.conversion = e.target.value;
-
-  }
-
-  avgValue(e){
-    this.averageValue = e.target.value;
-    this.calculateSellingPrice();
-
-  }
-
-
-  calculateSellingPrice(){
-    this.currencyRateResult = (this.conversion * this.rate) + (this.averageValue*1);
-    this.grandTotals();
-  }
-
-
-
-  //=================================================================
 
     //Random Number For Invoice Number
     randomNumber(){
         // this.random = Math.random().toString(36).slice(-5);
         this.random =  Math.floor(100000 + Math.random() * 9000);
+
+    }
+
+    //=================================================================
+
+
+    //For Update Inventory Total Each Quantity
+
+    addTotal(){
+        let totalQty = 0;
+        let totalCarton = 0;
+        let totalDzn = 0;
+        let totalPiece = 0;
+
+
+        //For Update
+        if(this.inventory._id !== undefined){
+
+            for (let key of this.inventory.items) {
+                totalQty =   key.cartonQty + key.dznQty + key.pieceQty
+
+                key.totalPiece = totalQty;
+            }
+
+
+            for (let key of this.inventory.items) {
+                totalCarton = totalCarton + key.cartonQty
+            }
+
+            for (let key of this.inventory.items) {
+                totalDzn = totalDzn + key.dznQty
+            }
+
+            for (let key of this.inventory.items) {
+                totalPiece = totalPiece + key.pieceQty
+            }
+            //For Create
+        }else {
+
+            for (let key of this.items) {
+                totalQty =   key.cartonQty + key.dznQty + key.pieceQty
+                // this.cartonQty = key.cartonQty;
+                // this.pieceQty = key.pieceQty;
+                // this.dznQty = key.dznQty;
+
+                key.totalPiece = totalQty;
+            }
+
+            for (let key of this.items) {
+                totalCarton = totalCarton + key.cartonQty
+            }
+
+            for (let key of this.items) {
+                totalDzn = totalDzn + key.dznQty
+            }
+
+            for (let key of this.items) {
+                totalPiece = totalPiece + key.pieceQty
+            }
+
+        }
+
+
+        this.inventory.totalCarton = totalCarton;
+        this.inventory.totalDzn = totalDzn;
+        this.inventory.totalPieces = totalPiece;
+
+        // console.log('Total Qty', this.items.totalPiece)
+    }
+
+    //=================================================================
+    //Currency Multiplied By the Rate and which is in the currency table
+    //=================================================================
+
+
+    currencyValue(i){
+        let currencyTaken = this.items[i].currency;
+
+        let num = 0;
+
+        let checkList = [];
+        this.currencies.forEach((currency) =>{
+
+            if(currency.currencyName ==  currencyTaken){
+                checkList.push(currency.currencyRate)
+            }
+
+            this.rate = checkList;
+            //
+            // console.log('Rate of each one',this.rate);
+            // console.log('Get Currency',currencyTaken)
+
+        })
+
+        let sellPrice = 0;
+
+        let totalSellPrice = 0;
+
+        // For Update
+        if(this.inventory._id !== undefined) {
+
+            for (let key of this.inventory.items) {
+                sellPrice = (key.currencyRate * this.rate) + this.inventory.avgPrice;
+
+                // key.sellingPrice = sellPrice;
+
+                totalSellPrice  = totalSellPrice + key.sellingPrice
+            }
+
+            this.inventory.totalPriceRs = totalSellPrice;
+
+
+        }else{
+            // For Create
+
+            console.log('Rate of each one',this.rate);
+
+
+            for (let key of this.items) {
+                sellPrice = (key.currencyRate * this.rate) + this.inventory.avgPrice;
+
+                key.sellingPrice = sellPrice;
+
+               totalSellPrice  = totalSellPrice + key.sellingPrice
+            }
+
+            this.inventory.totalPriceRs = totalSellPrice;
+        }
+
+        console.log(this.rate)
+
 
     }
 
@@ -408,6 +422,48 @@ export class CreateInventoryComponent implements OnInit {
                 });
 
     }
+
+    ////////////////////Find And Put Average Price////////////////////
+
+    searchAveragePrice(){
+
+      let containerNum = this.inventory.containerNumber;
+
+        let averageList = [];
+
+        let lister = [];
+
+        this.frieghtes.forEach((frieght) => {
+
+            if (frieght.container.containerNumber == containerNum) {
+                averageList.push(frieght.avgPrice)
+            }
+        })
+
+
+        // let jsonArray = [];
+        //
+        // averageList.forEach(data=>{
+        //     let exist = this.frieghtes.find((containerNum ) => containerNum  === data);
+        //     if(exist){
+        //         jsonArray.push({'name': data, 'matched': true})
+        //     }else{
+        //
+        //         jsonArray.push({'name': data, 'matched': false})
+        //     }
+        // });
+        //
+        // console.log(jsonArray);
+
+
+        this.inventory.avgPrice = averageList;
+
+        // this.inventory.avgPrice = list;
+
+        console.log('AverageList',this.inventory.avgPrice)
+
+
+}
 
 
     searchBarCode(event: any){
@@ -500,7 +556,7 @@ export class CreateInventoryComponent implements OnInit {
 
                         console.log('con', this.con)
                     }
-
+                    this.searchAveragePrice();
                 },
 
                 err => {
@@ -508,14 +564,6 @@ export class CreateInventoryComponent implements OnInit {
                 })
 
     }
-
-    matchCon(e){
-      let match = e.target.value
-
-
-
-    }
-
 
 
     readCurrency() {
@@ -534,6 +582,8 @@ export class CreateInventoryComponent implements OnInit {
           });
 
           this.currencies = sortedList;
+
+          console.log('Currency', this.currencies)
         },
 
         err =>{

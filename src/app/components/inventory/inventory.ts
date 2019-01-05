@@ -6,8 +6,25 @@ export class Inventory {
     public inventoryDate:string;
     public productCode:string;
     public barCode:string;
-    public avgPrice:string;
-    public items:string;
+    public avgPrice:number;
+
+
+
+    public items:any;
+    public itemName: string;
+    public cartonType: string;
+    public cartonQty: number;
+    public dznQty: number;
+    public pieceQty: number;
+    public totalPiece: number;
+    public currency: string;
+    public currencyRate: number;
+    public sellingPrice: number;
+    public expireDate: string;
+
+
+
+
     public totalCarton:number;
     public totalDzn:number;
     public totalPieces:number;

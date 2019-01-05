@@ -20,13 +20,12 @@ export class CreateFrieghtComponent implements OnInit {
     public size;
 
 
-    public totalCon = null;
-
-    public total = null;
+    public total = 0;
     public value1 = 0;
     public value2 = 0;
     public removed = 0;
     public deletedValue = 0;
+    public removedValue = 0;
 
     public totalAvg;
     public pieceValue;
@@ -56,20 +55,27 @@ export class CreateFrieghtComponent implements OnInit {
     // For Adding and Deleting Multiple Rows in the Frieght Invoice Form
     //=================================================================
 
-    addContainer(a, b, c) {
-        if(a==0 || b==0 || c==0){
-            alert('You Must Filled the Container Required Fields')
-        }
-        else{
-            this.container.push({
-                containerNumber: this.containerNumber,
-                price: this.price ,
-                size: this.size});
-            this.containerNumber = '';
-            this.price = '';
-            this.size = '';
-            console.log(this.container)
-        }
+    addContainer() {
+        this.container.push({
+            containerNumber: this.containerNumber,
+            price: this.price ,
+            size: this.size});
+        this.containerNumber = '';
+        this.price = '';
+        this.size = '';
+        console.log(this.container)
+
+    }
+
+    putContainer() {
+        this.frieght.container.push({
+            containerNumber: this.containerNumber,
+            price: this.price ,
+            size: this.size});
+        this.containerNumber = '';
+        this.price = '';
+        this.size = '';
+        console.log(this.container)
 
     }
 
@@ -83,58 +89,80 @@ export class CreateFrieghtComponent implements OnInit {
             this.deletedValue = this.removed[0].price;
             console.log('removed',this.deletedValue);
 
-            this.totalCon = (this.totalCon*1) - (this.deletedValue*1);
-            this.total = (this.total*1) - (this.deletedValue*1);
+            this.frieght.totalPrice = (this.frieght.totalPrice*1) - (this.deletedValue*1);
 
         }
 
     }
 
-    valueOne(e){
-        this.value1 = e.target.value;
+    removeContainer(index) {
 
-        this.addFieldValues();
-        this.addC();
-        // alert(e.target.value);
-    }
-
-    valueTwo(e){
-        this.value2 = e.target.value;
-        this.addFieldValues();
-        this.calculateAvg();
-        // alert(e.target.value);
-    }
-
-    totalPieceValue(e){
-        this.pieceValue = e.target.value;
-        this.calculateAvg();
-    }
+        if(this.frieght.container > this.frieght.container[0]){
+            // this.container.splice(index, 1);
+            this.removed = this.frieght.container.splice(index, 1);
 
 
-    addC(){
-        this.totalCon = this.price;
+            this.removedValue = this.removed[0].price;
+            console.log('removed',this.removedValue);
 
-        for (let i = 0; i < this.container.length; i++) {
-            if (this.container[i].price) {
-                this.totalCon = (this.totalCon*1) + (this.container[i].price*1);
-            }
+            this.frieght.containerPrice = (this.frieght.containerPrice*1) - (this.removedValue*1);
+
         }
 
-        this.addFieldValues();
-
     }
 
+    // ------------------Adding All Fields in Update-----------------
     addFieldValues() {
-        this.total = (this.totalCon*1) + (this.value2*1) ;
+
+        let total = 0;
+        let grandTotal = 0;
+        let avgPrice = 0;
+        let expensePrice = this.frieght.expensePrice;
+        let pPiece = this.frieght.totalProductPiece;
+
+        let expense = 0;
+
+        //Update
+        if(this.frieght._id !== undefined){
+
+            for (let key of this.frieght.container) {
+                total = total + key.price
+            }
+
+            for (let key of this.frieght.container) {
+                this.containerNumber = key.containerNumber;
+                this.price = key.price;
+                this.size = key.size;
+            }
+
+        }else {
+            //Create
+            for (let key of this.container) {
+                total = total + key.price;
+                this.containerNumber = key.containerNumber;
+                this.price = key.price;
+                this.size = key.size;
+            }
+
+        }
+
+        // console.log('Total Values =>', total);
+        this.frieght.containerPrice = total;
+
+        // expense = parseInt(this.frieght.expensePrice);
+
+        grandTotal = (total*1) + (expensePrice*1);
+
+        // console.log('Total Values =>', total + '->' + expense + '->' + grandTotal);
+        this.frieght.totalPrice = grandTotal;
+
+        avgPrice = expensePrice / pPiece;
+
+        avgPrice.toFixed(3);
+
+        this.frieght.avgPrice = avgPrice;
+
     }
-
-    calculateAvg(){
-
-        this.totalAvg = ((this.value2*1) / (this.pieceValue*1)).toFixed(3);
-
-        console.log('Average',this.totalAvg)
-    }
-
 
 
     createFrieght() {
@@ -142,20 +170,8 @@ export class CreateFrieghtComponent implements OnInit {
 
         if (frieght._id == undefined) {
 
-            if(frieght.totalPrice == null){
-                frieght.totalPrice = this.total
-            }
-
-            if(frieght.containerPrice == null){
-                frieght.containerPrice = this.totalCon
-            }
-
             if(frieght.container == null){
                 frieght.container = this.container
-            }
-
-            if(frieght.avgPrice == null){
-                frieght.avgPrice = this.totalAvg
             }
 
             this.frieghtService.createFrieght(this.frieght).subscribe(

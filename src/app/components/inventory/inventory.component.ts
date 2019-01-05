@@ -68,6 +68,14 @@ export class InventoryComponent implements OnInit {
         this._router.navigate(['/createInventory']);
     }
 
+
+    viewInventory(inventory){
+        this.inventoryService.showLog(inventory.items);
+        this.inventoryService.setter(inventory);
+        this._router.navigate(['/viewInventory']);
+    }
+
+
     deleteInventory(inventory){
         const isConfirmed = confirm("Are you sure to delete this Inventory ?");
         if(isConfirmed) {
