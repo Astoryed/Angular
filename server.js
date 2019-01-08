@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, '/dist/guru-new-able')));
+app.use(express.static(path.join(__dirname, '/dist/')));
 
 
 //Passport Middleware
@@ -74,7 +74,7 @@ app.use('/supplier', supplier);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/dist/guru-new-able/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
 //Set Port
