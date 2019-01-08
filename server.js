@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, '/dist/angularMin')));
 
 
 //Passport Middleware
@@ -74,7 +74,7 @@ app.use('/supplier', supplier);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/angularMin/index.html'));
 });
 
 //Set Port
