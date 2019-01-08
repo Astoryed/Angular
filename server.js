@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, '/dist/')));
+app.use(express.static(path.join(__dirname, '/dist')));
 
 
 //Passport Middleware
@@ -87,9 +87,19 @@ app.get('*', (req, res) => {
 //
 
 
-app.listen(process.env.PORT  || '3000');
+// app.listen(process.env.PORT  || '3000');
 
+app.set("port", process.env.PORT || 3000);
+app.set("host", process.env.HOST || "localhost");
 
+app.listen(app.get("port"), function() {
+    console.log(
+        "%s server listening at http://%s:%s",
+        process.env.NODE_ENV,
+        app.get("host"),
+        app.get("port")
+    );
+});
 // const port = process.env.PORT || 8000;
 //
 // server.listen(port, () => console.log(`Running on localhost:${port}`));
