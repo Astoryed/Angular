@@ -25,6 +25,8 @@ module.exports = function validateInventoryInput(data){
     // data.totalPieces = !isEmpty(data.totalPieces) ? data.totalPieces: '';
     // data.totalPriceDollar = !isEmpty(data.totalPriceDollar) ? data.totalPriceDollar: '';
     // data.totalPriceRs = !isEmpty(data.totalPriceRs) ? data.totalPriceRs: '';
+    data.expireDate = !isEmpty(data.expireDate) ? data.expireDate: '';
+
     data.notes = !isEmpty(data.notes) ? data.notes: '';
 
 
@@ -58,6 +60,10 @@ module.exports = function validateInventoryInput(data){
 
     if(Validator.isEmpty(data.avgPrice)){
         errors.avgPrice = "Average Price is required";
+    }
+
+    if(Validator.isEmpty(data.expireDate)){
+        errors.expireDate = "Expire Date is required";
     }
 
     if(Validator.isEmpty(data.notes)){

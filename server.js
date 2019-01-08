@@ -30,8 +30,8 @@ const supplier = require('./routes/api/supplier');
 
 
 // URL at which MongoDB service is running
-// const db = require('./config/keys').mongoURI;
-const db = "mongodb://localhost:27017/guruable";
+const db = require('./config/keys').mongoURI;
+// const db = "mongodb://localhost:27017/guruable";
 
 //Connect to MongoDB
 mongoose.connect(db)

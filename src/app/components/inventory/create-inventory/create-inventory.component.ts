@@ -9,6 +9,7 @@ import {Product} from '../../product/product';
 import {Unit} from '../../units/units';
 import { FormGroup, FormControl } from '@angular/forms';
 import {forEach} from '@angular/router/src/utils/collection';
+import {fr} from 'ngx-bootstrap/locale';
 
 @Component({
     selector: 'app-create-inventory',
@@ -36,8 +37,6 @@ export class CreateInventoryComponent implements OnInit {
     public sellingPrice;
     public expireDate;
 
-
-    public one = 0;
     public rate;
 
     public totalCartonQty;
@@ -53,7 +52,6 @@ export class CreateInventoryComponent implements OnInit {
 
     public code;
     public findProductCode;
-    public findAverage;
     public removed;
     public removedValue;
     public delCartonQty;
@@ -65,7 +63,7 @@ export class CreateInventoryComponent implements OnInit {
 
 
   errorMsg = {containerNumber:'', batchNumber:'', status:'', inventoryDate:'', productCode:'', barCodeName: '',
-  avgPrice: '', notes: ''};
+  avgPrice: '',expireDate: '', notes: ''};
 
   constructor(private _router: Router, private inventoryService: InventoryService,
               public toastr: ToastsManager, vcr: ViewContainerRef) {
@@ -233,7 +231,6 @@ export class CreateInventoryComponent implements OnInit {
 
     //=================================================================
 
-
     //For Update Inventory Total Each Quantity
 
     addTotal(){
@@ -249,43 +246,28 @@ export class CreateInventoryComponent implements OnInit {
             for (let key of this.inventory.items) {
                 totalQty =   key.cartonQty + key.dznQty + key.pieceQty
 
+                totalCarton = totalCarton + key.cartonQty
+                totalDzn = totalDzn + key.dznQty
+                totalPiece = totalPiece + key.pieceQty
+
+
                 key.totalPiece = totalQty;
             }
 
-
-            for (let key of this.inventory.items) {
-                totalCarton = totalCarton + key.cartonQty
-            }
-
-            for (let key of this.inventory.items) {
-                totalDzn = totalDzn + key.dznQty
-            }
-
-            for (let key of this.inventory.items) {
-                totalPiece = totalPiece + key.pieceQty
-            }
             //For Create
         }else {
 
             for (let key of this.items) {
+
                 totalQty =   key.cartonQty + key.dznQty + key.pieceQty
-                // this.cartonQty = key.cartonQty;
-                // this.pieceQty = key.pieceQty;
-                // this.dznQty = key.dznQty;
+
+                totalCarton = totalCarton + key.cartonQty
+                totalDzn = totalDzn + key.dznQty
+                totalPiece = totalPiece + key.pieceQty
+
+
 
                 key.totalPiece = totalQty;
-            }
-
-            for (let key of this.items) {
-                totalCarton = totalCarton + key.cartonQty
-            }
-
-            for (let key of this.items) {
-                totalDzn = totalDzn + key.dznQty
-            }
-
-            for (let key of this.items) {
-                totalPiece = totalPiece + key.pieceQty
             }
 
         }
@@ -303,62 +285,86 @@ export class CreateInventoryComponent implements OnInit {
     //=================================================================
 
 
-    currencyValue(i){
+    currencyValue(i) {
         let currencyTaken = this.items[i].currency;
 
-        let num = 0;
+        let sellPrice = 0;
+        let currencyRate;
+        let currentRate = this.items[i].currencyRate;
+        let totalSellingPrice = this.items[i].sellingPrice;
+        let avgPrice = this.inventory.avgPrice;
+        let totalCurrencyConversion = 0;
 
-        let checkList = [];
-        this.currencies.forEach((currency) =>{
+        this.currencies.forEach((currency) => {
 
-            if(currency.currencyName ==  currencyTaken){
-                checkList.push(currency.currencyRate)
+
+            if (currency.currencyName == currencyTaken) {
+                // parseInt(currency.currencyRate);
+                currencyRate = currency.currencyRate;
+
+                // currencyRate = currency.currencyRate;
+                console.log('Currency Foreach Rate', currencyRate);
+
             }
 
-            this.rate = checkList;
-            //
-            // console.log('Rate of each one',this.rate);
-            // console.log('Get Currency',currencyTaken)
 
-        })
+            totalCurrencyConversion = currencyRate * currentRate;
+
+            this.items[i].sellingPrice = totalCurrencyConversion + avgPrice;
+
+            // Accumulation of Selling Price
+
+            let accumulatedValue = 0;
+
+            for (let key in this.items) {
+                let value = this.items[key].sellingPrice;
+                accumulatedValue = accumulatedValue + value;
+
+            }
+
+            this.inventory.totalPriceRs = accumulatedValue;
+
+
+        });
+    }
+
+    // For Update
+    currencyUpdate(i){
+        let currencyTaken = this.inventory.items[i].currency;
 
         let sellPrice = 0;
+        let currencyRate;
+        let currentRate = this.inventory.items[i].currencyRate;
+        let totalSellingPrice = this.inventory.items[i].sellingPrice;
+        let avgPrice = this.inventory.avgPrice;
+        let totalCurrencyConversion = 0;
 
-        let totalSellPrice = 0;
+        this.currencies.forEach((currency) =>{
 
-        // For Update
-        if(this.inventory._id !== undefined) {
 
-            for (let key of this.inventory.items) {
-                sellPrice = (key.currencyRate * this.rate) + this.inventory.avgPrice;
+            if(currency.currencyName ==  currencyTaken){
+                currencyRate = currency.currencyRate;
 
-                // key.sellingPrice = sellPrice;
-
-                totalSellPrice  = totalSellPrice + key.sellingPrice
             }
 
-            this.inventory.totalPriceRs = totalSellPrice;
+            totalCurrencyConversion = currencyRate * currentRate;
 
+            this.inventory.items[i].sellingPrice = totalCurrencyConversion + (avgPrice*1);
 
-        }else{
-            // For Create
+            // Accumulation of Selling Price
 
-            console.log('Rate of each one',this.rate);
+            let accumulatedValue = 0;
 
+            for (let key in this.inventory.items){
+                let value = this.inventory.items[key].sellingPrice;
+                accumulatedValue = accumulatedValue + value;
 
-            for (let key of this.items) {
-                sellPrice = (key.currencyRate * this.rate) + this.inventory.avgPrice;
-
-                key.sellingPrice = sellPrice;
-
-               totalSellPrice  = totalSellPrice + key.sellingPrice
             }
 
-            this.inventory.totalPriceRs = totalSellPrice;
-        }
+            this.inventory.totalPriceRs = accumulatedValue;
 
-        console.log(this.rate)
 
+        });
 
     }
 
@@ -423,47 +429,75 @@ export class CreateInventoryComponent implements OnInit {
 
     }
 
-    ////////////////////Find And Put Average Price////////////////////
 
-    searchAveragePrice(){
 
-      let containerNum = this.inventory.containerNumber;
+    //////////////////Find And Put Average Price////////////////////
 
-        let averageList = [];
+    searchAveragePrice(e){
 
-        let lister = [];
+        let containerNum = e.target.value;
+
+        let averageList = 0;
+        // let role = [];
 
         this.frieghtes.forEach((frieght) => {
 
-            if (frieght.container.containerNumber == containerNum) {
-                averageList.push(frieght.avgPrice)
+
+            if (frieght.container.containerNumber = containerNum) {
+
+                averageList =  frieght.avgPrice
+
+
+                // console.log('containerNum',role)
             }
-        })
 
 
-        // let jsonArray = [];
-        //
-        // averageList.forEach(data=>{
-        //     let exist = this.frieghtes.find((containerNum ) => containerNum  === data);
-        //     if(exist){
-        //         jsonArray.push({'name': data, 'matched': true})
-        //     }else{
-        //
-        //         jsonArray.push({'name': data, 'matched': false})
-        //     }
-        // });
-        //
-        // console.log(jsonArray);
+        });
 
+
+        // console.log('Frieghts',frieght.container[i].containerNumber)
 
         this.inventory.avgPrice = averageList;
-
-        // this.inventory.avgPrice = list;
 
         console.log('AverageList',this.inventory.avgPrice)
 
 
-}
+    }
+
+
+
+    ////////////////////Find And Put Average Price////////////////////
+    // searchAveragePrice(e){
+    //
+    //     let containerNum = e.target.value;
+    //
+    //     let averageList = 0;
+    //     // let role = [];
+    //
+    //     this.frieghtes.forEach((frieght) => {
+    //
+    //
+    //         if (frieght.container.containerNumber = containerNum) {
+    //
+    //             averageList =  frieght.avgPrice
+    //
+    //
+    //             // console.log('containerNum',role)
+    //         }
+    //
+    //
+    //     });
+    //
+    //
+    //     // console.log('Frieghts',frieght.container[i].containerNumber)
+    //
+    //     this.inventory.avgPrice = averageList;
+    //
+    //     console.log('AverageList',this.inventory.avgPrice)
+    //
+    //
+    // }
+
 
 
     searchBarCode(event: any){
@@ -554,9 +588,7 @@ export class CreateInventoryComponent implements OnInit {
                         });
                         this.con = sortedList;
 
-                        console.log('con', this.con)
                     }
-                    this.searchAveragePrice();
                 },
 
                 err => {

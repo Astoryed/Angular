@@ -3,19 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4e2584d3-2353-4550-ba34-a67688a0682f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/frieght.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/frieght/fright.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/frieght/fright.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Currency.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/Currency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/batch/batch.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/batch/batch.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/booker/booker.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/booker/booker.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/inventory.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation/inventory.js" beforeDir="false" afterPath="$PROJECT_DIR$/validation/inventory.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -42,20 +37,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create-inventory.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create-inventory.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="458" column="46" selection-start-line="458" selection-start-column="46" selection-end-line="458" selection-end-column="46" />
+            <state relative-caret-position="7866">
+              <caret line="448" selection-start-line="448" selection-end-line="448" />
+              <folding>
+                <element signature="e#0#66#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inventory.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.ts">
+      <file leaf-file-name="create-frieght.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+            <state relative-caret-position="2448">
+              <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create-frieght.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1170">
+              <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="with-bg-image.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/pages/authentication/login/with-bg-image/with-bg-image.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/cors/lib/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -63,8 +104,8 @@
       <file leaf-file-name="create-inventory.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1767">
-              <caret line="132" column="84" selection-start-line="132" selection-start-column="84" selection-end-line="132" selection-end-column="84" />
+            <state relative-caret-position="5760">
+              <caret line="320" column="21" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -73,8 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>app-ti</find>
-      <find />
       <find>John</find>
       <find>Hello</find>
       <find>Hel</find>
@@ -103,6 +142,8 @@
       <find>cartonQty</find>
       <find>grand</find>
       <find>secondElement</find>
+      <find>putI</find>
+      <find>one</find>
     </findStrings>
     <replaceStrings>
       <replace>frieght</replace>
@@ -122,15 +163,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/booker/booker.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/batch/batch.component.html" />
-        <option value="$PROJECT_DIR$/src/app/services/supplier.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/supplier/supplier.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/supplier/create-supplier/create-supplier.component.css" />
-        <option value="$PROJECT_DIR$/src/app/components/supplier/create-supplier/create-supplier.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/supplier/create-supplier/create-supplier.component.html" />
         <option value="$PROJECT_DIR$/routes/api/supplier.js" />
-        <option value="$PROJECT_DIR$/src/app/components/booker/booker.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/supplier/supplier.component.html" />
         <option value="$PROJECT_DIR$/models/Booker.js" />
         <option value="$PROJECT_DIR$/models/Supplier.js" />
@@ -169,10 +203,17 @@
         <option value="$PROJECT_DIR$/src/app/components/frieght/frieght.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/batch/batch.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/booker/booker.component.html" />
+        <option value="$PROJECT_DIR$/models/Currency.js" />
+        <option value="$PROJECT_DIR$/validation/inventory.js" />
         <option value="$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html" />
-        <option value="$PROJECT_DIR$/src/app/components/inventory/inventory.ts" />
         <option value="$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -197,10 +238,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="-16" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -224,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,63 +272,10 @@
               <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
               <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="inventory" type="462c0819:PsiDirectoryNode" />
-              <item name="create-inventory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AngularMin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AngularMin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-              <item name="view-user" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -297,7 +285,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Projects/AngularLink/src/app/components/frieght/create-frieght/create-frieght.component.ts&#10;system&#9;FILE&#9;file://C:/Projects/AngularCRUD/node_modules/core-js/es7/system.js&#10;router-outlet&#9;null&#9;null&#10;Sys&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AngularLink" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AngularTin" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="C:\guruabledashboard\Angular-4\Theme\node_modules\tslint" />
@@ -497,11 +485,21 @@
       <workItem from="1546578580081" duration="364000" />
       <workItem from="1546578963324" duration="27616000" />
       <workItem from="1546663573811" duration="22369000" />
+      <workItem from="1546686989973" duration="772000" />
+      <workItem from="1546687856000" duration="45000" />
+      <workItem from="1546687939130" duration="13000" />
+      <workItem from="1546687998176" duration="2246000" />
+      <workItem from="1546837953661" duration="26991000" />
+      <workItem from="1546922830362" duration="1650000" />
+      <workItem from="1546928812406" duration="146000" />
+      <workItem from="1546928980599" duration="8000" />
+      <workItem from="1546929038587" duration="891000" />
+      <workItem from="1546929975143" duration="14000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="948975000" />
+    <option name="totallyTimeSpent" value="981751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,13 +514,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.33828384" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.46864685" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49924356" visible="true" weight="0.28382838" />
       <window_info anchor="bottom" id="TypeScript" order="7" weight="0.32838285" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18910742" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22692889" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="8" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -567,7 +565,6 @@
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18910742" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -576,6 +573,7 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
@@ -587,7 +585,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -595,15 +593,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/validation/inventory.js" />
-    <entry file="file://$PROJECT_DIR$/src/app/services/frieght.service.spec.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/services/inventory.service.ts" />
-    <entry file="file://$PROJECT_DIR$/src/environments/environment.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/dashboard/dashboard.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/invoice/invoice.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/map/map.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/pages/task/task.module.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.css" />
     <entry file="file://$PROJECT_DIR$/routes/api/currency.js" />
     <entry file="file://$PROJECT_DIR$/models/Product.js">
       <provider selected="true" editor-type-id="text-editor" />
@@ -674,16 +663,6 @@
     <entry file="file://$PROJECT_DIR$/src/app/components/product/product.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
@@ -695,13 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="90" column="26" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Inventory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="74" column="10" lean-forward="true" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -720,13 +692,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/users/view-user/view-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/fright.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -763,41 +729,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/frieght/view-frieght/view-frieght.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="11" selection-start-line="13" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="49" column="53" lean-forward="true" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -808,17 +743,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/components/batch/batch.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        <state relative-caret-position="306">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/components/booker/booker.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103">
+          <caret line="74" column="10" lean-forward="true" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Currency.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -829,17 +785,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/view-inventory/view-inventory.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1767">
-          <caret line="132" column="84" selection-start-line="132" selection-start-column="84" selection-end-line="132" selection-end-column="84" />
+        <state relative-caret-position="18">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/validation/inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-container/create-container.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/frieght.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1440">
+          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/inventory.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="53" lean-forward="true" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5760">
+          <caret line="320" column="21" selection-start-line="320" selection-start-column="21" selection-end-line="320" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/components/inventory/create-inventory/create-inventory.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="458" column="46" selection-start-line="458" selection-start-column="46" selection-end-line="458" selection-end-column="46" />
+        <state relative-caret-position="7866">
+          <caret line="448" selection-start-line="448" selection-end-line="448" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="136" column="38" selection-start-line="136" selection-start-column="38" selection-end-line="136" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/frieght/create-frieght/create-frieght.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/pages/authentication/login/with-bg-image/with-bg-image.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/cors/lib/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
         </state>
       </provider>
     </entry>

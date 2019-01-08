@@ -15,7 +15,7 @@
     <!--Row 1 Start-->
 
     <div class="row">
-      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -28,7 +28,7 @@
           <div class="col-sm-4">
             <label>Container No</label>
 
-              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control">
+              <select [(ngModel)] = "inventory.containerNumber" name="containerNumber" class="form-control"  (change)=" searchAveragePrice($event)">
                 <option *ngFor="let cont of con" value="{{cont.containerNumber}}">{{cont.containerNumber}}</option>
                 <!--<small class="text-danger">{{errorMsg.containerNumber}}</small>-->
 
@@ -49,7 +49,7 @@
 
       </div>
 
-      <div class="col-sm-6 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -83,12 +83,12 @@
 
 
     <div class="row">
-      <div class="col-sm-8 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
 
-          <div class="pcoded-search col-sm-4" >
+          <div class="pcoded-search col-sm-6" >
             <label>Product Code</label>
             <input [(ngModel)] = "inventory.productCode" name="productCode" (keyup)='search($event)'
                    class="form-control" placeholder="Search" type="search" value="{{inventory.productCode}}">
@@ -96,20 +96,7 @@
 
           </div>
 
-
-          <!--<input type="search"  [(ngModel)] = "search" name="productCode"/>-->
-
-
-          <!--<div class="col-sm-4">-->
-            <!--<label>Product Code</label>-->
-            <!--<select [(ngModel)] = "inventory.productCode" name="productCode" class="form-control" (change)="codeProduct($event)">-->
-              <!--<option *ngFor="let product of products" value="{{product._id}}">{{product.productCode}}</option>-->
-            <!--</select>-->
-            <!--&lt;!&ndash;<small class="text-danger">{{errorMsg.productCode}}</small>&ndash;&gt;-->
-
-          <!--</div>-->
-
-          <div class="pcoded-search col-sm-4">
+          <div class="pcoded-search col-sm-6">
             <label>Barcode Name</label>
             <input [(ngModel)] = "inventory.barCode" name="barCode" (keyup)='searchBarCode($event)'
                    class="form-control" placeholder="Search" type="search" value="{{inventory.barCode}}">
@@ -119,16 +106,17 @@
 
           </div>
 
-          <!--<div class="col-sm-4">-->
-            <!--<label>Barcode Name</label>-->
-            <!--<select [(ngModel)] = "inventory.barCode" name="barCode" class="form-control">-->
-              <!--<option *ngFor="let product of products" value="{{product.barCode}}">{{product.barCode}}</option>-->
-            <!--</select>-->
-            <!--&lt;!&ndash;<small class="text-danger">{{errorMsg.barCodeName}}</small>&ndash;&gt;-->
 
-          <!--</div>-->
+        </div>
 
-          <div class="col-sm-4">
+      </div>
+
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 mobile-inputs">
+
+        <div class="form-group row">
+
+
+          <div class="col-sm-6">
             <label>Average Price From Expense</label>
             <input  [(ngModel)] = "inventory.avgPrice" name="avgPrice"  type="number" class="form-control" placeholder="">
 
@@ -137,6 +125,8 @@
         </div>
 
       </div>
+
+
     </div>
     <!--===================================Repeat First Row==================================================-->
 
@@ -204,6 +194,7 @@
                       [class.is-invalid]="expireDate.invalid && expireDate.touched">
 
               <small class="text-danger" *ngIf="expireDate.invalid && expireDate.touched">Expire Date is required </small>
+              <small class="text-danger">{{errorMsg.expireDate}}</small>
 
             </div>
 
@@ -327,7 +318,7 @@
                   <a data-toggle="tooltip" title="Add" (click)="putItems()">
                     <i class="icofont icofont-ui-add text-c-green f-16"></i></a>
                 </div>
-                &nbsp; &nbsp;
+                &nbsp
 
                 <div class="addBtn">
                   <a data-toggle="tooltip" title="Remove" (click)="removeItems(i)">
@@ -349,7 +340,7 @@
 
                 <div class="col-sm-3">
                   <label>Currency</label>
-                  <select [(ngModel)] = "item.currency" name="item.currency-{{i}}" class="form-control" >
+                  <select [(ngModel)] = "item.currency" name="item.currency-{{i}}" type="text" class="form-control" (change)="currencyUpdate(i)">
                     <option *ngFor="let currency of currencies" value="{{currency.currencyName}}" >{{currency.currencyName}}</option>
                   </select>
                 </div>
@@ -357,7 +348,7 @@
 
                 <div class="col-sm-3">
                   <label>Currency Rate</label>
-                  <input  [(ngModel)] = "item.currencyRate" name="item.currencyRate-{{i}}" (change)="calculatePrice()"
+                  <input  [(ngModel)] = "item.currencyRate" name="item.currencyRate-{{i}}" (change)="currencyUpdate(i)"
                           min="0" type="number" class="form-control" placeholder="">
                 </div>
 
@@ -384,7 +375,7 @@
     <!--Row 5 Start-->
 
     <div class="row">
-      <div class="col-sm-6 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -410,7 +401,7 @@
       </div>
 
 
-      <div class="col-sm-6 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 mobile-inputs">
 
         <div class="form-group row">
 
@@ -434,7 +425,7 @@
     <!--Row 6 Start-->
 
     <div class="row">
-      <div class="col-sm-8 mobile-inputs">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-8 mobile-inputs">
 
         <div class="form-group row">
           <div class="col-sm-6">

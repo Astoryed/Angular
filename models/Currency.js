@@ -8,7 +8,7 @@ const CurrencySchema = new Schema({
         required: true
     },
     currencyRate:{
-        type: String,
+        type: Number,
         required: true
     },
     status:{
