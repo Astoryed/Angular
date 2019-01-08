@@ -7,7 +7,7 @@
     "ng": "ng",
     "prod": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng  build --prod",
     "start": "node server.js",
-    "postinstall": "ng build prod",
+    "postinstall": "ng build --prod",
     "build": "ng build",
     "server": "nodemon server.js",
     "lint": "ng lint",
