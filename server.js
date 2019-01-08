@@ -44,7 +44,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // Angular DIST output folder
-app.use(express.static(path.join(__dirname, '/dist/angularMin')));
+app.use(express.static(path.join(__dirname, '/dist/guru-new-able')));
 
 
 //Passport Middleware
@@ -74,13 +74,22 @@ app.use('/supplier', supplier);
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/dist/angularMin/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/guru-new-able/index.html'));
 });
 
 //Set Port
-const port = process.env.PORT || '3000';
-app.set('port', port);
+// const port = process.env.PORT || '3000';
+// app.set('port', port);
+//
+// const server = http.createServer(app);
+//
+// server.listen(port, () => console.log(`Running on localhost:${port}`));
+//
 
-const server = http.createServer(app);
 
-server.listen(port, () => console.log(`Running on localhost:${port}`));
+app.listen(process.env.PORT  || '3000');
+
+
+// const port = process.env.PORT || 8000;
+//
+// server.listen(port, () => console.log(`Running on localhost:${port}`));
