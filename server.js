@@ -89,6 +89,8 @@ app.get('*', (req, res) => {
 
 app.listen(process.env.PORT  || '3000');
 
-// const port = process.env.PORT || 8000;
-//
-// server.listen(port, () => console.log(`Running on localhost:${port}`));
+// PathLocationStrategy
+
+app.get('', () => {
+    res.sendFile(path.join(__dirname, 'src', 'index.html'));
+});

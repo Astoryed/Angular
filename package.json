@@ -107,7 +107,11 @@
     "webpack-bundle-analyzer": "^2.9.0"
   },
   "engines": {
-    "node": "~11.1.0",
-    "npm": "~6.4.1"
+    "node": "11.6.0",
+    "npm": "6.5.0"
   }
 }
+//  "engines": {
+//    "node": "11.1.0",
+//    "npm": "6.4.1"
+//  }
